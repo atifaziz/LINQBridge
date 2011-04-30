@@ -33,9 +33,6 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\src\ExtensionAttribute.cs">
-      <Link>ExtensionAttribute.cs</Link>
-    </Compile>
     <Compile Include="EnumerableFixture.cs" />
     <Compile Include="Reader.cs" />
     <Compile Include="Tester.cs" />
