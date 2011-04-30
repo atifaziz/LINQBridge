@@ -1610,7 +1610,7 @@ namespace System.Linq
             Func<TSource, TKey> keySelector, 
             IEqualityComparer<TKey> comparer)
         {
-            return source.ToDictionary(keySelector, e => e);
+            return source.ToDictionary(keySelector, e => e, comparer);
         }
 
         /// <summary>

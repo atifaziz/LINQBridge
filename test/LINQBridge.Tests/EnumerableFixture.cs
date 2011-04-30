@@ -2130,6 +2130,18 @@ namespace LinqBridge.Tests
         }
 
         [Test]
+        public void ToDictionary_KeySelectorArg_ValidArguments_ComparerIsUsedForKeysInDictionary()
+        {
+            var source = Read("foo", "bar", "baz");
+            var result = source.ToDictionary(s => s, StringComparer.OrdinalIgnoreCase);
+            Assert.AreEqual("foo", result["FOO"]);
+            Assert.AreEqual("foo", result["foo"]);
+            Assert.AreEqual("foo", result["FoO"]);
+            Assert.AreEqual("bar", result["BAR"]);
+            Assert.AreEqual("baz", result["BAZ"]);
+        }
+
+        [Test]
         public void ToList_IntsFromOneToTen_ReturnsListOfIntsContainingAllElements()
         {
             var source = Read(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
