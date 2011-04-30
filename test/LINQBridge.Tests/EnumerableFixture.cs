@@ -2201,20 +2201,24 @@ namespace LinqBridge.Tests
         public void Operators_AsExtensionMethods()
         {
             var extensionType = typeof(ExtensionAttribute);
-            var ops = typeof(Enumerable).GetMethods(BindingFlags.Static | BindingFlags.Public);           
-            foreach (var op in ops)
+            var ops = typeof(Enumerable).GetMethods(BindingFlags.Static | BindingFlags.Public);
+            foreach (var op in Array.FindAll(ops, MethodExtendsSequence))
             {
-                var parameters = op.GetParameters();
-                var extendedType = parameters.Length > 0 ? parameters[0].ParameterType : null;
-
-                if (   extendedType != null 
-                    && extendedType.IsGenericType 
-                    && extendedType.GetGenericTypeDefinition() == typeof (IEnumerable<>))
-                {
-                    var result = Attribute.IsDefined(op, extensionType);
-                    Assert.That(result, Is.True, "{0} is not defined as an extension method.", op);
-                }
+                var result = Attribute.IsDefined(op, extensionType);
+                Assert.That(result, Is.True, "{0} is not defined as an extension method.", op);
             }
+        }
+
+        private static bool MethodExtendsSequence(MethodInfo op)
+        {
+            var parameters = op.GetParameters();
+            var extendedType = parameters.Length > 0 ? parameters[0].ParameterType : null;
+
+            return extendedType != null 
+                && (extendedType == typeof(IEnumerable)
+                    || (extendedType.IsGenericType
+                        && (   extendedType.GetGenericTypeDefinition() == typeof(IEnumerable<>)
+                            || extendedType.GetGenericTypeDefinition() == typeof(IOrderedEnumerable<>))));
         }
 
         private Reader<T> Read<T>(params T[] source)
