@@ -25,7 +25,7 @@
 //
 #endregion
 
-// $Id: Enumerable.cs 248 2011-01-17 06:52:23Z azizatif $
+// $Id: Enumerable.cs 249 2011-01-17 07:00:59Z azizatif $
 
 namespace System.Linq
 {
@@ -338,6 +338,18 @@ namespace System.Linq
                     break;
         }
 
+        /// <summary>
+        /// Returns a specified number of contiguous elements from the start 
+        /// of a sequence.
+        /// </summary>
+
+        public static IEnumerable<TSource> Take<TSource>(
+            this IEnumerable<TSource> source,
+            int count)
+        {
+            return source.TakeWhile((item, i) => i < count);
+        }
+
         private static class Futures<T>
         {
             public static readonly Func<T> Default = () => default(T);
@@ -624,30 +636,6 @@ namespace System.Linq
         }
 
         /// <summary>
-        /// Returns a specified number of contiguous elements from the start 
-        /// of a sequence.
-        /// </summary>
-
-        public static IEnumerable<TSource> Take<TSource>(
-            this IEnumerable<TSource> source,
-            int count)
-        {
-            return source.TakeWhile((item, i) => i < count);
-        }
-
-        /// <summary>
-        /// Bypasses a specified number of elements in a sequence and then 
-        /// returns the remaining elements.
-        /// </summary>
-
-        public static IEnumerable<TSource> Skip<TSource>(
-            this IEnumerable<TSource> source,
-            int count)
-        {
-            return source.Where((item, i) => i >= count);
-        }
-
-        /// <summary>
         /// Bypasses elements in a sequence as long as a specified condition 
         /// is true and then returns the remaining elements.
         /// </summary>
@@ -694,6 +682,18 @@ namespace System.Linq
 
                 do { yield return e.Current; } while (e.MoveNext());
             }
+        }
+
+        /// <summary>
+        /// Bypasses a specified number of elements in a sequence and then 
+        /// returns the remaining elements.
+        /// </summary>
+
+        public static IEnumerable<TSource> Skip<TSource>(
+            this IEnumerable<TSource> source,
+            int count)
+        {
+            return source.SkipWhile((item, i) => i < count);
         }
 
         /// <summary>
