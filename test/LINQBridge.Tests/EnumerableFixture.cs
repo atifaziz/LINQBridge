@@ -914,6 +914,34 @@ namespace LinqBridge.Tests
             result.AssertEquals("M\u00FCller:43", "Meier:47");
         }
 
+        [Test(Description = "http://code.google.com/p/linqbridge/issues/detail?id=21")]
+        public void GroupBy_NullKey()
+        {
+            var arr = new[] { "notnull", null };
+
+            var groups = arr.GroupBy(s => s);
+            using (var group = groups.GetEnumerator())
+            {
+                Assert.That(group.MoveNext(), Is.True);
+                Assert.That(group.Current.Key, Is.EqualTo("notnull"));
+                using (var item = group.Current.GetEnumerator())
+                {
+                    Assert.That(item.MoveNext(), Is.True);
+                    Assert.That(item.Current, Is.EqualTo("notnull"));
+                    Assert.That(item.MoveNext(), Is.False);
+                }
+                Assert.That(group.MoveNext(), Is.True);
+                Assert.That(group.Current.Key, Is.Null);
+                using (var item = group.Current.GetEnumerator())
+                {
+                    Assert.That(item.MoveNext(), Is.True);
+                    Assert.That(item.Current, Is.Null);
+                    Assert.That(item.MoveNext(), Is.False);
+                }
+                Assert.That(group.MoveNext(), Is.False);
+            }
+        }
+
         class Pet
         {
             public string Name { get; set; }

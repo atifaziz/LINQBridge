@@ -45,19 +45,35 @@ namespace System.Linq
     internal sealed class Lookup<TKey, TElement> : ILookup<TKey, TElement>
     {
         private readonly Dictionary<TKey, IGrouping<TKey, TElement>> _map;
+        private readonly List<TKey> _orderedKeys; // in order of insertion
+        private IGrouping<TKey, TElement> _nullGrouping;
 
         internal Lookup(IEqualityComparer<TKey> comparer)
         {
             _map = new Dictionary<TKey, IGrouping<TKey, TElement>>(comparer);
+            _orderedKeys = new List<TKey>();
         }
 
         internal void Add(IGrouping<TKey, TElement> item)
         {
-            _map.Add(item.Key, item);
+            var key = item.Key;
+            if (key == null)
+            {
+                if (_nullGrouping != null)
+                    throw new ArgumentException("An item with the same key has already been added.");
+                _nullGrouping = item;
+            }
+            else
+            {
+                _map.Add(key, item);
+            }
+            _orderedKeys.Add(key);
         }
 
         internal IEnumerable<TElement> Find(TKey key)
         {
+            if (key == null)
+                return _nullGrouping;
             IGrouping<TKey, TElement> grouping;
             return _map.TryGetValue(key, out grouping) ? grouping : null;
         }
@@ -79,6 +95,8 @@ namespace System.Linq
         {
             get
             {
+                if (key == null)
+                    return _nullGrouping ?? Enumerable.Empty<TElement>();
                 IGrouping<TKey, TElement> result;
                 return _map.TryGetValue(key, out result) ? result : Enumerable.Empty<TElement>();
             }
@@ -90,7 +108,7 @@ namespace System.Linq
 
         public bool Contains(TKey key)
         {
-            return _map.ContainsKey(key);
+            return key == null ? _nullGrouping != null : _map.ContainsKey(key);
         }
 
         /// <summary>
@@ -103,9 +121,9 @@ namespace System.Linq
         {
             if (resultSelector == null) 
                 throw new ArgumentNullException("resultSelector");
-            
-            foreach (var pair in _map)
-                yield return resultSelector(pair.Key, pair.Value);
+
+            foreach (var grouping in this)
+                yield return resultSelector(grouping.Key, grouping);
         }
 
         /// <summary>
@@ -114,7 +132,8 @@ namespace System.Linq
 
         public IEnumerator<IGrouping<TKey, TElement>> GetEnumerator()
         {
-            return _map.Values.GetEnumerator();
+            foreach (var key in _orderedKeys)
+                yield return key == null ? _nullGrouping : _map[key];
         }
 
         IEnumerator IEnumerable.GetEnumerator()
