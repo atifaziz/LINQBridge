@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<NCover3ProjectSetting xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="307">
+  <CoverageDataURL>C:\Users\Allon\Documents\Visual Studio 2008\Projects\LINQBridge\test\LINQBridge.Tests\bin\..\coverage.xml</CoverageDataURL>
+  <ShowExcludedNodes>true</ShowExcludedNodes>
+  <DefaultViewSetting SatisfactoryBranchThreshold="95" SatisfactoryCoverageThreshold="95" SatisfactoryCyclomaticComplexityThreshold="20" SatisfactoryFunctionThreshold="80" SatisfactoryUnvisitedSequencePoints="0" WidgetType="TreeView" FilterStyle="None" ReportStyle="SequencePointCoveragePercentage" SortStyle="Name">
+    <DelayFilters>false</DelayFilters>
+    <filters />
+  </DefaultViewSetting>
+  <NCoverRunSettings>
+    <AutoExclude>true</AutoExclude>
+    <CommandLineArgs>/noshadow LinqBridge.Tests.dll</CommandLineArgs>
+    <CommandLineExe>C:\Program Files\NUnit 2.5\bin\net-2.0\nunit-console.exe</CommandLineExe>
+    <CoverageType>Symbol Branch CyclomaticComplexity MethodVisits</CoverageType>
+    <CoverageXml>..\coverage.xml</CoverageXml>
+    <Assemblies>LinqBridge</Assemblies>
+    <LogFile>..\coverage.log</LogFile>
+    <LoggingLevel>None</LoggingLevel>
+    <NCoverExe>C:\Program Files\NCover\ncover.console.exe</NCoverExe>
+    <OnlyAssembliesWithSource>false</OnlyAssembliesWithSource>
+    <ProfileIIS>false</ProfileIIS>
+    <ProfileWindowsApplication>true</ProfileWindowsApplication>
+    <ProfileWindowsService>false</ProfileWindowsService>
+    <ProjectName>LINQBridge.Tests</ProjectName>
+    <RegisterForUser>false</RegisterForUser>
+    <ServiceTimeout>0</ServiceTimeout>
+    <SymbolSearchPolicy>15</SymbolSearchPolicy>
+    <ExpertMode>false</ExpertMode>
+    <VersionNumber>330</VersionNumber>
+    <WaitForAppLoad>1</WaitForAppLoad>
+    <WorkingDirectory>C:\Users\Allon\Documents\Visual Studio 2008\Projects\LINQBridge\test\LINQBridge.Tests\bin</WorkingDirectory>
+  </NCoverRunSettings>
+  <ProjectGuid>ed54477a-bf2b-42c1-9b4c-f6ab7204b00c</ProjectGuid>
+  <ProjectName>LINQBridge.Tests</ProjectName>
+  <RebasedPaths />
+  <ReportPath />
+  <SyncPathWithWorkingDirectory>false</SyncPathWithWorkingDirectory>
+</NCover3ProjectSetting>

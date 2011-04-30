@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQBridge", "src\LINQBridge.csproj", "{66621034-90CC-4D1A-B49E-73A13E3B22EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQBridge.Tests", "test\LINQBridge.Tests\LINQBridge.Tests.csproj", "{8CFA0EA5-31B9-43D0-A2D9-A002C2C25121}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ.Tests", "test\LINQ.Tests\LINQ.Tests.csproj", "{FF0FB762-A5DB-4AF2-A917-BD185E97F90B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestResultsWiki", "test\TestResultsWiki\TestResultsWiki.csproj", "{13CDFE15-3BA8-4FA5-B21E-832E56525541}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66621034-90CC-4D1A-B49E-73A13E3B22EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66621034-90CC-4D1A-B49E-73A13E3B22EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66621034-90CC-4D1A-B49E-73A13E3B22EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66621034-90CC-4D1A-B49E-73A13E3B22EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CFA0EA5-31B9-43D0-A2D9-A002C2C25121}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CFA0EA5-31B9-43D0-A2D9-A002C2C25121}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CFA0EA5-31B9-43D0-A2D9-A002C2C25121}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CFA0EA5-31B9-43D0-A2D9-A002C2C25121}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{FF0FB762-A5DB-4AF2-A917-BD185E97F90B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF0FB762-A5DB-4AF2-A917-BD185E97F90B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF0FB762-A5DB-4AF2-A917-BD185E97F90B}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF0FB762-A5DB-4AF2-A917-BD185E97F90B}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{13CDFE15-3BA8-4FA5-B21E-832E56525541}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13CDFE15-3BA8-4FA5-B21E-832E56525541}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13CDFE15-3BA8-4FA5-B21E-832E56525541}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13CDFE15-3BA8-4FA5-B21E-832E56525541}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
