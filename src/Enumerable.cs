@@ -25,7 +25,7 @@
 //
 #endregion
 
-// $Id: Enumerable.cs 249 2011-01-17 07:00:59Z azizatif $
+// $Id: Enumerable.cs 251 2011-01-17 07:34:22Z azizatif $
 
 namespace System.Linq
 {
@@ -50,7 +50,7 @@ namespace System.Linq
         /// Returns the input typed as <see cref="IEnumerable{T}"/>.
         /// </summary>
 
-        public static IEnumerable<TSource> AsEnumerable<TSource>(IEnumerable<TSource> source)
+        public static IEnumerable<TSource> AsEnumerable<TSource>(this IEnumerable<TSource> source)
         {
             return source;
         }

@@ -34,11 +34,12 @@ namespace LinqBridge.Tests
     using System.Collections;
     using System.Collections.Generic;
     using System.Globalization;
-    using System.Text;
+    using System.Reflection;
     using NUnit.Framework;
     using System.Linq;
     using NUnit.Framework.SyntaxHelpers;
     using System.Diagnostics;
+    using ExtensionAttribute = System.Runtime.CompilerServices.ExtensionAttribute;
 
     #endregion
 
@@ -2194,6 +2195,26 @@ namespace LinqBridge.Tests
         public void AsEnumerable_NullSource_ReturnsNull()
         {
             Assert.That(Enumerable.AsEnumerable<object>(null), Is.Null);
+        }
+
+        [Test]
+        public void Operators_AsExtensionMethods()
+        {
+            var extensionType = typeof(ExtensionAttribute);
+            var ops = typeof(Enumerable).GetMethods(BindingFlags.Static | BindingFlags.Public);           
+            foreach (var op in ops)
+            {
+                var parameters = op.GetParameters();
+                var extendedType = parameters.Length > 0 ? parameters[0].ParameterType : null;
+
+                if (   extendedType != null 
+                    && extendedType.IsGenericType 
+                    && extendedType.GetGenericTypeDefinition() == typeof (IEnumerable<>))
+                {
+                    var result = Attribute.IsDefined(op, extensionType);
+                    Assert.That(result, Is.True, "{0} is not defined as an extension method.", op);
+                }
+            }
         }
 
         private Reader<T> Read<T>(params T[] source)
