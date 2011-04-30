@@ -25,7 +25,7 @@
 //
 #endregion
 
-// $Id: Enumerable.cs 251 2011-01-17 07:34:22Z azizatif $
+// $Id: Enumerable.cs 253 2011-02-04 22:48:58Z azizatif $
 
 namespace System.Linq
 {
@@ -1310,6 +1310,9 @@ namespace System.Linq
         {
             CheckNotNull(source, "source");
             Debug.Assert(lesser != null);
+
+            if (typeof(TSource).IsClass) // ReSharper disable CompareNonConstrainedGenericWithNull                
+                source = source.Where(e => e != null).DefaultIfEmpty(); // ReSharper restore CompareNonConstrainedGenericWithNull
 
             return source.Aggregate((a, item) => lesser(a, item) ? a : item);
         }

@@ -1370,7 +1370,7 @@ namespace LinqBridge.Tests
 		[Test]
 		public void Min_StringsWithSelector_ReturnsMinimum()
 		{
-			Assert.That(Read("the", "quick", "brown", "fox").Min(x => x == null ? null : x.Last() + x), Is.EqualTo("ethe"));
+			Assert.That(Read("the", "quick", "brown", "fox").Min(x => x.Last() + x), Is.EqualTo("ethe"));
 		}
 
         [Test]
@@ -1384,6 +1384,20 @@ namespace LinqBridge.Tests
         {
             var strings = Read("five", "four", null, "three", null, "two", "one", "zero");
             Assert.That(strings.Min(s => s != null ? s.Length : (int?)null), Is.EqualTo(3));
+        }
+
+        [Test(Description = "http://code.google.com/p/linqbridge/issues/detail?id=19")]
+        public void Min_EmptyStringSequence_ReturnsNull()
+        {
+            var strings = Read<string>();
+            Assert.That(strings.Min(), Is.Null);
+        }
+
+        [Test(Description = "http://code.google.com/p/linqbridge/issues/detail?id=19")]
+        public void Min_NonNullAndNullString_ReturnsNull()
+        {
+            var strings = Read("a", null);
+            Assert.That(strings.Min(), Is.EqualTo("a"));
         }
 
         [Test]
