@@ -25,7 +25,7 @@
 //
 #endregion
 
-// $Id: Enumerable.cs 240 2010-10-19 21:49:03Z azizatif $
+// $Id: Enumerable.cs 248 2011-01-17 06:52:23Z azizatif $
 
 namespace System.Linq
 {
@@ -632,7 +632,7 @@ namespace System.Linq
             this IEnumerable<TSource> source,
             int count)
         {
-            return source.Where((item, i) => i < count);
+            return source.TakeWhile((item, i) => i < count);
         }
 
         /// <summary>
