@@ -514,6 +514,15 @@ namespace LinqBridge.Tests
             Assert.That(set.MoveNext(), Is.False);
         }
 
+        [Test(Description = "See http://code.google.com/p/linqbridge/issues/detail?id=17")]
+        public void Distinct_StringArrayWithSeveralNull_YieldsSet()
+        {
+            var set = new List<string> { null, null, null }.Distinct().GetEnumerator();
+            Assert.That(set.MoveNext(), Is.True);
+            Assert.That(set.Current, Is.Null);
+            Assert.That(set.MoveNext(), Is.False);
+        }
+
         [Test]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ElementAt_IndexOutOfRange_ThrowsArgumentOutOfRangeException()
