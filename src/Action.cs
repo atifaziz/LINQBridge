@@ -1,4 +1,4 @@
-﻿#region License, Terms and Author(s)
+#region License, Terms and Author(s)
 //
 // LINQBridge
 // Copyright (c) 2007-9 Atif Aziz, Joseph Albahari. All rights reserved.
@@ -25,7 +25,7 @@
 //
 #endregion
 
-// $Id: Action.cs 239 2010-02-05 23:26:23Z azizatif $
+// $Id: Action.cs 96c90603bdff 2011-04-30 12:48:09Z azizatif $
 
 namespace System
 {

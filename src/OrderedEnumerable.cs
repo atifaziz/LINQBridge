@@ -25,7 +25,7 @@
 //
 #endregion
 
-// $Id: OrderedEnumerable.cs 237 2010-01-31 12:20:24Z azizatif $
+// $Id: OrderedEnumerable.cs 96c90603bdff 2011-04-30 12:48:09Z azizatif $
 
 namespace LinqBridge
 {
