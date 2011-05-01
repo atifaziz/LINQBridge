@@ -124,7 +124,7 @@ namespace System.Linq
             return GetEnumerator();
         }
 
-        internal struct Key
+        struct Key
         {
             public Key(TKey value)
             {
@@ -142,11 +142,9 @@ namespace System.Linq
             }
         }
 
-        internal class KeyEqualityComparer : IEqualityComparer<Key>
+        sealed class KeyEqualityComparer : IEqualityComparer<Key>
         {
             private readonly IEqualityComparer<TKey> m_InnerComparer;
-
-            public KeyEqualityComparer() : this(null) { }
 
             public KeyEqualityComparer(IEqualityComparer<TKey> innerComparer)
             {
