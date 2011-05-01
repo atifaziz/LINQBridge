@@ -46,22 +46,22 @@ namespace System.Linq
 
     internal sealed class Lookup<TKey, TElement> : ILookup<TKey, TElement>
     {
-        private readonly Dictionary<Wrapped, IGrouping<TKey, TElement>> _map;
+        private readonly Dictionary<Key, IGrouping<TKey, TElement>> _map;
 
         internal Lookup(IEqualityComparer<TKey> comparer)
         {
-            _map = new Dictionary<Wrapped, IGrouping<TKey, TElement>>(new WrappedEqualityComparer(comparer));
+            _map = new Dictionary<Key, IGrouping<TKey, TElement>>(new KeyEqualityComparer(comparer));
         }
 
         internal void Add(IGrouping<TKey, TElement> item)
         {
-            _map.Add(new Wrapped(item.Key), item);
+            _map.Add(new Key(item.Key), item);
         }
 
         internal IEnumerable<TElement> Find(TKey key)
         {
             IGrouping<TKey, TElement> grouping;
-            return _map.TryGetValue(new Wrapped(key), out grouping) ? grouping : null;
+            return _map.TryGetValue(new Key(key), out grouping) ? grouping : null;
         }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace System.Linq
             get
             {
                 IGrouping<TKey, TElement> result;
-                return _map.TryGetValue(new Wrapped(key), out result) ? result : Enumerable.Empty<TElement>();
+                return _map.TryGetValue(new Key(key), out result) ? result : Enumerable.Empty<TElement>();
             }
         }
 
@@ -92,7 +92,7 @@ namespace System.Linq
 
         public bool Contains(TKey key)
         {
-            return _map.ContainsKey(new Wrapped(key));
+            return _map.ContainsKey(new Key(key));
         }
 
         /// <summary>
@@ -124,9 +124,9 @@ namespace System.Linq
             return GetEnumerator();
         }
 
-        internal struct Wrapped
+        internal struct Key
         {
-            public Wrapped(TKey value)
+            public Key(TKey value)
             {
                 m_Value = value;
             }
@@ -142,23 +142,23 @@ namespace System.Linq
             }
         }
 
-        internal class WrappedEqualityComparer : IEqualityComparer<Wrapped>
+        internal class KeyEqualityComparer : IEqualityComparer<Key>
         {
             private readonly IEqualityComparer<TKey> m_InnerComparer;
 
-            public WrappedEqualityComparer() : this(null) { }
+            public KeyEqualityComparer() : this(null) { }
 
-            public WrappedEqualityComparer(IEqualityComparer<TKey> innerComparer)
+            public KeyEqualityComparer(IEqualityComparer<TKey> innerComparer)
             {
                 m_InnerComparer = innerComparer ?? EqualityComparer<TKey>.Default;
             }
 
-            public bool Equals(Wrapped x, Wrapped y)
+            public bool Equals(Key x, Key y)
             {
                 return m_InnerComparer.Equals(x.Value, y.Value);
             }
 
-            public int GetHashCode(Wrapped obj)
+            public int GetHashCode(Key obj)
             {
                 if ((default(TKey) == null) && (obj.Value as object == null))
                     return 0;
