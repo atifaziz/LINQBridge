@@ -47,15 +47,19 @@ namespace System.Linq
     internal sealed class Lookup<TKey, TElement> : ILookup<TKey, TElement>
     {
         private readonly Dictionary<Key, IGrouping<TKey, TElement>> _map;
+        private readonly List<Key> _orderedKeys; // remember order of insertion
 
         internal Lookup(IEqualityComparer<TKey> comparer)
         {
             _map = new Dictionary<Key, IGrouping<TKey, TElement>>(new KeyComparer(comparer));
+            _orderedKeys = new List<Key>();
         }
 
         internal void Add(IGrouping<TKey, TElement> item)
         {
-            _map.Add(new Key(item.Key), item);
+            var key = new Key(item.Key);
+            _map.Add(key, item);
+            _orderedKeys.Add(key);
         }
 
         internal IEnumerable<TElement> Find(TKey key)
@@ -116,7 +120,8 @@ namespace System.Linq
 
         public IEnumerator<IGrouping<TKey, TElement>> GetEnumerator()
         {
-            return _map.Values.GetEnumerator();
+            foreach (var key in _orderedKeys)
+                yield return _map[key];
         }
 
         IEnumerator IEnumerable.GetEnumerator()
