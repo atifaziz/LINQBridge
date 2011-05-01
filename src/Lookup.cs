@@ -50,7 +50,7 @@ namespace System.Linq
 
         internal Lookup(IEqualityComparer<TKey> comparer)
         {
-            _map = new Dictionary<Key, IGrouping<TKey, TElement>>(new KeyEqualityComparer(comparer));
+            _map = new Dictionary<Key, IGrouping<TKey, TElement>>(new KeyComparer(comparer));
         }
 
         internal void Add(IGrouping<TKey, TElement> item)
@@ -126,42 +126,27 @@ namespace System.Linq
 
         struct Key
         {
-            public Key(TKey value)
-            {
-                m_Value = value;
-            }
-
-            private readonly TKey m_Value;
-
-            public TKey Value
-            {
-                get
-                {
-                    return m_Value;
-                }
-            }
+            public Key(TKey value) : this() { Value = value; }
+            public TKey Value { get; private set; }
         }
 
-        sealed class KeyEqualityComparer : IEqualityComparer<Key>
+        sealed class KeyComparer : IEqualityComparer<Key>
         {
-            private readonly IEqualityComparer<TKey> m_InnerComparer;
+            private readonly IEqualityComparer<TKey> _innerComparer;
 
-            public KeyEqualityComparer(IEqualityComparer<TKey> innerComparer)
+            public KeyComparer(IEqualityComparer<TKey> innerComparer)
             {
-                m_InnerComparer = innerComparer ?? EqualityComparer<TKey>.Default;
+                _innerComparer = innerComparer ?? EqualityComparer<TKey>.Default;
             }
 
             public bool Equals(Key x, Key y)
             {
-                return m_InnerComparer.Equals(x.Value, y.Value);
+                return _innerComparer.Equals(x.Value, y.Value);
             }
 
             public int GetHashCode(Key obj)
             {
-                if ((default(TKey) == null) && (obj.Value as object == null))
-                    return 0;
-
-                return m_InnerComparer.GetHashCode(obj.Value);
+                return obj.Value == null ? 0 : _innerComparer.GetHashCode(obj.Value);
             }
         }
     }
