@@ -27,5 +27,5 @@ REM -------------------------------------------------------------------------
 REM
 
 for %%i in (Debug Release) do (
-    "%SystemRoot%\Microsoft.NET\Framework\v3.5\msbuild" /p:Configuration=%%i "%~dp0LINQBridge.sln"
+    "%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\msbuild" /p:Configuration=%%i "%~dp0LINQBridge.sln"
 )
