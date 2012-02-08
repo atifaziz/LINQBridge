@@ -27,12 +27,13 @@
 
 // $Id: Public.cs 96c90603bdff 2011-04-30 12:48:09Z azizatif $
 
+using System.Collections.Generic;
 namespace System.Linq
 {
 #if LINQBRIDGE_LIB
 
     public partial class Enumerable { }
-    public partial interface IGrouping<TKey, TElement> { }
+    public partial interface IGrouping<out TKey, TElement>: IEnumerable<TElement> { }
     public partial interface ILookup<TKey, TElement> { }
     public partial interface IOrderedEnumerable<TElement> { }
 

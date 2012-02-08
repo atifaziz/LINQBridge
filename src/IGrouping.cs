@@ -39,7 +39,7 @@ namespace System.Linq
     /// Represents a collection of objects that have a common key.
     /// </summary>
 
-    partial interface IGrouping<TKey, TElement> : IEnumerable<TElement>
+    partial interface IGrouping<out TKey, TElement> : IEnumerable<TElement>
     {
         /// <summary>
         /// Gets the key of the <see cref="IGrouping{TKey,TElement}" />.
