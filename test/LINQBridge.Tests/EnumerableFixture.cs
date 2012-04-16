@@ -67,6 +67,8 @@ namespace LinqBridge.Tests
             System.Threading.Thread.CurrentThread.CurrentCulture = initialCulture;
         }
 
+        // ReSharper disable InconsistentNaming
+
         [Test]
         [ExpectedException(typeof(InvalidOperationException))]
         public void Aggregate_EmptySource_ThrowsInvalidOperationException()
