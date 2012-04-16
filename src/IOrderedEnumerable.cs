@@ -1,7 +1,7 @@
 #region License, Terms and Author(s)
 //
 // LINQBridge
-// Copyright (c) 2007-9 Atif Aziz, Joseph Albahari. All rights reserved.
+// Copyright (c) 2007 Atif Aziz, Joseph Albahari. All rights reserved.
 //
 //  Author(s):
 //

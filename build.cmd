@@ -1,7 +1,7 @@
 @echo off
 
 REM LINQBridge
-REM Copyright (c) 2007-9 Atif Aziz, Joseph Albahari. All rights reserved.
+REM Copyright (c) 2007 Atif Aziz, Joseph Albahari. All rights reserved.
 REM
 REM  Author(s):
 REM

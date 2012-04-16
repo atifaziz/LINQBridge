@@ -1,7 +1,7 @@
 #region License, Terms and Author(s)
 //
 // LINQBridge
-// Copyright (c) 2007-9 Atif Aziz, Joseph Albahari. All rights reserved.
+// Copyright (c) 2007 Atif Aziz, Joseph Albahari. All rights reserved.
 //
 //  Author(s):
 //
@@ -37,7 +37,7 @@ namespace System.Linq
     #endregion
     
     // This partial implementation was template-generated:
-    // Mon, 16 Apr 2012 19:24:39 GMT
+    // Mon, 16 Apr 2012 19:42:10 GMT
 
     partial class Enumerable
     {
