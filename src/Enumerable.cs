@@ -73,7 +73,7 @@ namespace System.Linq
         public static IEnumerable<TResult> Cast<TResult>(
             this IEnumerable source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             return CastYield<TResult>(source);
         }
@@ -92,7 +92,7 @@ namespace System.Linq
         public static IEnumerable<TResult> OfType<TResult>(
             this IEnumerable source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             return OfTypeYield<TResult>(source);
         }
@@ -154,7 +154,7 @@ namespace System.Linq
             this IEnumerable<TSource> source,
             Func<TSource, bool> predicate)
         {
-            CheckNotNull(predicate, "predicate");
+            if (predicate == null) throw new ArgumentNullException("predicate");
 
             return source.Where((item, i) => predicate(item));
         }
@@ -168,8 +168,8 @@ namespace System.Linq
             this IEnumerable<TSource> source,
             Func<TSource, int, bool> predicate)
         {
-            CheckNotNull(source, "source");
-            CheckNotNull(predicate, "predicate");
+            if (source == null) throw new ArgumentNullException("source");
+            if (predicate == null) throw new ArgumentNullException("predicate");
 
             return WhereYield(source, predicate);
         }
@@ -192,7 +192,7 @@ namespace System.Linq
             this IEnumerable<TSource> source,
             Func<TSource, TResult> selector)
         {
-            CheckNotNull(selector, "selector");
+            if (selector == null) throw new ArgumentNullException("selector");
 
             return source.Select((item, i) => selector(item));
         }
@@ -206,8 +206,8 @@ namespace System.Linq
             this IEnumerable<TSource> source,
             Func<TSource, int, TResult> selector)
         {
-            CheckNotNull(source, "source");
-            CheckNotNull(selector, "selector");
+            if (source == null) throw new ArgumentNullException("source");
+            if (selector == null) throw new ArgumentNullException("selector");
 
             return SelectYield(source, selector);
         }
@@ -230,7 +230,7 @@ namespace System.Linq
             this IEnumerable<TSource> source,
             Func<TSource, IEnumerable<TResult>> selector)
         {
-            CheckNotNull(selector, "selector");
+            if (selector == null) throw new ArgumentNullException("selector");
 
             return source.SelectMany((item, i) => selector(item));
         }
@@ -246,7 +246,7 @@ namespace System.Linq
             this IEnumerable<TSource> source, 
             Func<TSource, int, IEnumerable<TResult>> selector)
         {
-            CheckNotNull(selector, "selector");
+            if (selector == null) throw new ArgumentNullException("selector");
 
             return source.SelectMany(selector, (item, subitem) => subitem);
         }
@@ -262,7 +262,7 @@ namespace System.Linq
             Func<TSource, IEnumerable<TCollection>> collectionSelector,
             Func<TSource, TCollection, TResult> resultSelector)
         {
-            CheckNotNull(collectionSelector, "collectionSelector");
+            if (collectionSelector == null) throw new ArgumentNullException("collectionSelector");
 
             return source.SelectMany((item, i) => collectionSelector(item), resultSelector);
         }
@@ -280,9 +280,9 @@ namespace System.Linq
             Func<TSource, int, IEnumerable<TCollection>> collectionSelector,
             Func<TSource, TCollection, TResult> resultSelector)
         {
-            CheckNotNull(source, "source");
-            CheckNotNull(collectionSelector, "collectionSelector");
-            CheckNotNull(resultSelector, "resultSelector");
+            if (source == null) throw new ArgumentNullException("source");
+            if (collectionSelector == null) throw new ArgumentNullException("collectionSelector");
+            if (resultSelector == null) throw new ArgumentNullException("resultSelector");
 
             return SelectManyYield(source, collectionSelector, resultSelector);
         }
@@ -306,7 +306,7 @@ namespace System.Linq
             this IEnumerable<TSource> source,
             Func<TSource, bool> predicate)
         {
-            CheckNotNull(predicate, "predicate");
+            if (predicate == null) throw new ArgumentNullException("predicate");
 
             return source.TakeWhile((item, i) => predicate(item));
         }
@@ -320,8 +320,8 @@ namespace System.Linq
             this IEnumerable<TSource> source,
             Func<TSource, int, bool> predicate)
         {
-            CheckNotNull(source, "source");
-            CheckNotNull(predicate, "predicate");
+            if (source == null) throw new ArgumentNullException("source");
+            if (predicate == null) throw new ArgumentNullException("predicate");
 
             return TakeWhileYield(source, predicate);
         }
@@ -364,7 +364,7 @@ namespace System.Linq
             this IEnumerable<TSource> source, 
             Func<TSource> empty)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
             Debug.Assert(empty != null);
 
             var list = source as IList<TSource>;    // optimized case for lists
@@ -427,7 +427,7 @@ namespace System.Linq
             this IEnumerable<TSource> source, 
             Func<TSource> empty)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             var list = source as IList<TSource>;    // optimized case for lists
             if (list != null)
@@ -498,7 +498,7 @@ namespace System.Linq
             this IEnumerable<TSource> source,
             Func<TSource> empty)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             using (var e = source.GetEnumerator())
             {
@@ -573,7 +573,7 @@ namespace System.Linq
             this IEnumerable<TSource> source,
             int index)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             if (index < 0)
                 throw new ArgumentOutOfRangeException("index", index, null);
@@ -601,7 +601,7 @@ namespace System.Linq
             this IEnumerable<TSource> source,
             int index)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             if (index < 0)
                 return default(TSource);
@@ -620,7 +620,7 @@ namespace System.Linq
         public static IEnumerable<TSource> Reverse<TSource>(
             this IEnumerable<TSource> source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             return ReverseYield(source);
         }
@@ -644,7 +644,7 @@ namespace System.Linq
             this IEnumerable<TSource> source,
             Func<TSource, bool> predicate)
         {
-            CheckNotNull(predicate, "predicate");
+            if (predicate == null) throw new ArgumentNullException("predicate");
 
             return source.SkipWhile((item, i) => predicate(item));
         }
@@ -659,8 +659,8 @@ namespace System.Linq
             this IEnumerable<TSource> source,
             Func<TSource, int, bool> predicate)
         {
-            CheckNotNull(source, "source");
-            CheckNotNull(predicate, "predicate");
+            if (source == null) throw new ArgumentNullException("source");
+            if (predicate == null) throw new ArgumentNullException("predicate");
 
             return SkipWhileYield(source, predicate);
         }
@@ -703,7 +703,7 @@ namespace System.Linq
         public static int Count<TSource>(
             this IEnumerable<TSource> source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             var collection = source as ICollection;
             return collection != null 
@@ -731,7 +731,7 @@ namespace System.Linq
         public static long LongCount<TSource>(
             this IEnumerable<TSource> source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             var array = source as Array;
             return array != null 
@@ -759,8 +759,8 @@ namespace System.Linq
             this IEnumerable<TSource> first,
             IEnumerable<TSource> second)
         {
-            CheckNotNull(first, "first");
-            CheckNotNull(second, "second");
+            if (first == null) throw new ArgumentNullException("first");
+            if (second == null) throw new ArgumentNullException("second");
 
             return ConcatYield(first, second);
         }
@@ -783,7 +783,7 @@ namespace System.Linq
         public static List<TSource> ToList<TSource>(
             this IEnumerable<TSource> source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             return new List<TSource>(source);
         }
@@ -818,7 +818,7 @@ namespace System.Linq
             this IEnumerable<TSource> source,
             IEqualityComparer<TSource> comparer)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             return DistinctYield(source, comparer);
         }
@@ -902,9 +902,9 @@ namespace System.Linq
             Func<TSource, TElement> elementSelector,
             IEqualityComparer<TKey> comparer)
         {
-            CheckNotNull(source, "source");
-            CheckNotNull(keySelector, "keySelector");
-            CheckNotNull(elementSelector, "elementSelector");
+            if (source == null) throw new ArgumentNullException("source");
+            if (keySelector == null) throw new ArgumentNullException("keySelector");
+            if (elementSelector == null) throw new ArgumentNullException("elementSelector");
 
             var lookup = new Lookup<TKey, TElement>(comparer);
             
@@ -977,9 +977,9 @@ namespace System.Linq
             Func<TSource, TElement> elementSelector,
             IEqualityComparer<TKey> comparer)
         {
-            CheckNotNull(source, "source");
-            CheckNotNull(keySelector, "keySelector");
-            CheckNotNull(elementSelector, "elementSelector");
+            if (source == null) throw new ArgumentNullException("source");
+            if (keySelector == null) throw new ArgumentNullException("keySelector");
+            if (elementSelector == null) throw new ArgumentNullException("elementSelector");
 
             return ToLookup(source, keySelector, elementSelector, comparer);
         }
@@ -1011,9 +1011,9 @@ namespace System.Linq
             Func<TKey, IEnumerable<TSource>, TResult> resultSelector,
             IEqualityComparer<TKey> comparer)
         {
-            CheckNotNull(source, "source");
-            CheckNotNull(keySelector, "keySelector");
-            CheckNotNull(resultSelector, "resultSelector");
+            if (source == null) throw new ArgumentNullException("source");
+            if (keySelector == null) throw new ArgumentNullException("keySelector");
+            if (resultSelector == null) throw new ArgumentNullException("resultSelector");
 
             return ToLookup(source, keySelector, comparer).Select(g => resultSelector(g.Key, g));
         }
@@ -1048,10 +1048,10 @@ namespace System.Linq
             Func<TKey, IEnumerable<TElement>, TResult> resultSelector,
             IEqualityComparer<TKey> comparer)
         {
-            CheckNotNull(source, "source");
-            CheckNotNull(keySelector, "keySelector");
-            CheckNotNull(elementSelector, "elementSelector");
-            CheckNotNull(resultSelector, "resultSelector");
+            if (source == null) throw new ArgumentNullException("source");
+            if (keySelector == null) throw new ArgumentNullException("keySelector");
+            if (elementSelector == null) throw new ArgumentNullException("elementSelector");
+            if (resultSelector == null) throw new ArgumentNullException("resultSelector");
 
             return ToLookup(source, keySelector, elementSelector, comparer)
                    .Select(g => resultSelector(g.Key, g));
@@ -1065,8 +1065,8 @@ namespace System.Linq
             this IEnumerable<TSource> source,
             Func<TSource, TSource, TSource> func)
         {
-            CheckNotNull(source, "source");
-            CheckNotNull(func, "func");
+            if (source == null) throw new ArgumentNullException("source");
+            if (func == null) throw new ArgumentNullException("func");
 
             using (var e = source.GetEnumerator())
             {
@@ -1102,9 +1102,9 @@ namespace System.Linq
             Func<TAccumulate, TSource, TAccumulate> func,
             Func<TAccumulate, TResult> resultSelector)
         {
-            CheckNotNull(source, "source");
-            CheckNotNull(func, "func");
-            CheckNotNull(resultSelector, "resultSelector");
+            if (source == null) throw new ArgumentNullException("source");
+            if (func == null) throw new ArgumentNullException("func");
+            if (resultSelector == null) throw new ArgumentNullException("resultSelector");
 
             var result = seed;
 
@@ -1160,7 +1160,7 @@ namespace System.Linq
             this IEnumerable<TSource> source,
             TSource defaultValue)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             return DefaultIfEmptyYield(source, defaultValue);
         }
@@ -1186,8 +1186,8 @@ namespace System.Linq
             this IEnumerable<TSource> source,
             Func<TSource, bool> predicate)
         {
-            CheckNotNull(source, "source");
-            CheckNotNull(predicate, "predicate");
+            if (source == null) throw new ArgumentNullException("source");
+            if (predicate == null) throw new ArgumentNullException("predicate");
 
             foreach (var item in source)
                 if (!predicate(item))
@@ -1203,7 +1203,7 @@ namespace System.Linq
         public static bool Any<TSource>(
             this IEnumerable<TSource> source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             using (var e = source.GetEnumerator())
                 return e.MoveNext();
@@ -1243,7 +1243,7 @@ namespace System.Linq
             TSource value,
             IEqualityComparer<TSource> comparer)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             if (comparer == null)
             {
@@ -1278,8 +1278,8 @@ namespace System.Linq
             IEnumerable<TSource> second,
             IEqualityComparer<TSource> comparer)
         {
-            CheckNotNull(first, "frist");
-            CheckNotNull(second, "second");
+            if (first == null) throw new ArgumentNullException("frist");
+            if (second == null) throw new ArgumentNullException("second");
 
             comparer = comparer ?? EqualityComparer<TSource>.Default;
 
@@ -1308,7 +1308,7 @@ namespace System.Linq
             this IEnumerable<TSource> source,
             Func<TSource, TSource, bool> lesser)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
             Debug.Assert(lesser != null);
 
             if (typeof(TSource).IsClass) // ReSharper disable CompareNonConstrainedGenericWithNull                
@@ -1325,7 +1325,7 @@ namespace System.Linq
             this IEnumerable<TSource?> source,
             TSource? seed, Func<TSource?, TSource?, bool> lesser) where TSource : struct
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
             Debug.Assert(lesser != null);
 
             return source.Aggregate(seed, (a, item) => lesser(a, item) ? a : item); 
@@ -1416,8 +1416,8 @@ namespace System.Linq
             Func<TSource, TKey> keySelector,
             IComparer<TKey> comparer)
         {
-            CheckNotNull(source, "source");
-            CheckNotNull(keySelector, "keySelector");
+            if (source == null) throw new ArgumentNullException("source");
+            if (keySelector == null) throw new ArgumentNullException("keySelector");
 
             return new OrderedEnumerable<TSource, TKey>(source, keySelector, comparer, /* descending */ false);
         }
@@ -1443,8 +1443,8 @@ namespace System.Linq
             Func<TSource, TKey> keySelector, 
             IComparer<TKey> comparer)
         {
-            CheckNotNull(source, "source");
-            CheckNotNull(source, "keySelector");
+            if (source == null) throw new ArgumentNullException("source");
+            if (source == null) throw new ArgumentNullException("keySelector");
 
             return new OrderedEnumerable<TSource, TKey>(source, keySelector, comparer, /* descending */ true);
         }
@@ -1471,7 +1471,7 @@ namespace System.Linq
             Func<TSource, TKey> keySelector, 
             IComparer<TKey> comparer)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             return source.CreateOrderedEnumerable(keySelector, comparer, /* descending */ false);
         }
@@ -1498,7 +1498,7 @@ namespace System.Linq
             Func<TSource, TKey> keySelector, 
             IComparer<TKey> comparer)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             return source.CreateOrderedEnumerable(keySelector, comparer, /* descending */ true);
         }
@@ -1513,8 +1513,8 @@ namespace System.Linq
             IEqualityComparer<TSource> comparer,
             bool flag)
         {
-            CheckNotNull(first, "first");
-            CheckNotNull(second, "second");
+            if (first == null) throw new ArgumentNullException("first");
+            if (second == null) throw new ArgumentNullException("second");
 
             var keys = new List<TSource>();
             var nullFlag = false;
@@ -1648,9 +1648,9 @@ namespace System.Linq
             Func<TSource, TElement> elementSelector, 
             IEqualityComparer<TKey> comparer)
         {
-            CheckNotNull(source, "source");
-            CheckNotNull(keySelector, "keySelector");
-            CheckNotNull(elementSelector, "elementSelector");
+            if (source == null) throw new ArgumentNullException("source");
+            if (keySelector == null) throw new ArgumentNullException("keySelector");
+            if (elementSelector == null) throw new ArgumentNullException("elementSelector");
 
             var dict = new Dictionary<TKey, TElement>(comparer);
 
@@ -1703,11 +1703,11 @@ namespace System.Linq
             Func<TOuter, TInner, TResult> resultSelector,
             IEqualityComparer<TKey> comparer)
         {
-            CheckNotNull(outer, "outer");
-            CheckNotNull(inner, "inner");
-            CheckNotNull(outerKeySelector, "outerKeySelector");
-            CheckNotNull(innerKeySelector, "innerKeySelector");
-            CheckNotNull(resultSelector, "resultSelector");
+            if (outer == null) throw new ArgumentNullException("outer");
+            if (inner == null) throw new ArgumentNullException("inner");
+            if (outerKeySelector == null) throw new ArgumentNullException("outerKeySelector");
+            if (innerKeySelector == null) throw new ArgumentNullException("innerKeySelector");
+            if (resultSelector == null) throw new ArgumentNullException("resultSelector");
 
             var lookup = inner.ToLookup(innerKeySelector, comparer);
 
@@ -1748,21 +1748,14 @@ namespace System.Linq
             Func<TOuter, IEnumerable<TInner>, TResult> resultSelector, 
             IEqualityComparer<TKey> comparer)
         {
-            CheckNotNull(outer, "outer");
-            CheckNotNull(inner, "inner");
-            CheckNotNull(outerKeySelector, "outerKeySelector");
-            CheckNotNull(innerKeySelector, "innerKeySelector");
-            CheckNotNull(resultSelector, "resultSelector");
+            if (outer == null) throw new ArgumentNullException("outer");
+            if (inner == null) throw new ArgumentNullException("inner");
+            if (outerKeySelector == null) throw new ArgumentNullException("outerKeySelector");
+            if (innerKeySelector == null) throw new ArgumentNullException("innerKeySelector");
+            if (resultSelector == null) throw new ArgumentNullException("resultSelector");
 
             var lookup = inner.ToLookup(innerKeySelector, comparer);
             return outer.Select(o => resultSelector(o, lookup[outerKeySelector(o)]));
-        }
-        
-        [DebuggerStepThrough]
-        private static void CheckNotNull<T>(T value, string name) where T : class
-        {
-            if (value == null) 
-                throw new ArgumentNullException(name);
         }
 
         private static class Sequence<T>

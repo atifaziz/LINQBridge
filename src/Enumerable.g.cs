@@ -37,7 +37,7 @@ namespace System.Linq
     #endregion
     
     // This partial implementation was template-generated:
-    // Sat, 03 Oct 2009 09:42:39 GMT
+    // Mon, 16 Apr 2012 19:24:39 GMT
 
     partial class Enumerable
     {
@@ -48,7 +48,7 @@ namespace System.Linq
         public static int Sum(
             this IEnumerable<int> source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             int sum = 0;
             foreach (var num in source)
@@ -77,7 +77,7 @@ namespace System.Linq
         public static double Average(
             this IEnumerable<int> source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             long sum = 0;
             long count = 0;
@@ -116,7 +116,7 @@ namespace System.Linq
         public static int? Sum(
             this IEnumerable<int?> source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             int sum = 0;
             foreach (var num in source)
@@ -145,7 +145,7 @@ namespace System.Linq
         public static double? Average(
             this IEnumerable<int?> source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             long sum = 0;
             long count = 0;
@@ -184,7 +184,7 @@ namespace System.Linq
         public static int? Min(
             this IEnumerable<int?> source) 
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
             
             return MinMaxImpl(source.Where(x => x != null), null, (min, x) => min < x);
         }
@@ -209,7 +209,7 @@ namespace System.Linq
         public static int? Max(
             this IEnumerable<int?> source) 
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
             
             return MinMaxImpl(source.Where(x => x != null), 
                 null, (max, x) => x == null || (max != null && x.Value < max.Value));
@@ -234,7 +234,7 @@ namespace System.Linq
         public static long Sum(
             this IEnumerable<long> source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             long sum = 0;
             foreach (var num in source)
@@ -263,7 +263,7 @@ namespace System.Linq
         public static double Average(
             this IEnumerable<long> source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             long sum = 0;
             long count = 0;
@@ -302,7 +302,7 @@ namespace System.Linq
         public static long? Sum(
             this IEnumerable<long?> source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             long sum = 0;
             foreach (var num in source)
@@ -331,7 +331,7 @@ namespace System.Linq
         public static double? Average(
             this IEnumerable<long?> source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             long sum = 0;
             long count = 0;
@@ -370,7 +370,7 @@ namespace System.Linq
         public static long? Min(
             this IEnumerable<long?> source) 
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
             
             return MinMaxImpl(source.Where(x => x != null), null, (min, x) => min < x);
         }
@@ -395,7 +395,7 @@ namespace System.Linq
         public static long? Max(
             this IEnumerable<long?> source) 
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
             
             return MinMaxImpl(source.Where(x => x != null), 
                 null, (max, x) => x == null || (max != null && x.Value < max.Value));
@@ -420,7 +420,7 @@ namespace System.Linq
         public static float Sum(
             this IEnumerable<float> source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             float sum = 0;
             foreach (var num in source)
@@ -449,7 +449,7 @@ namespace System.Linq
         public static float Average(
             this IEnumerable<float> source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             float sum = 0;
             long count = 0;
@@ -488,7 +488,7 @@ namespace System.Linq
         public static float? Sum(
             this IEnumerable<float?> source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             float sum = 0;
             foreach (var num in source)
@@ -517,7 +517,7 @@ namespace System.Linq
         public static float? Average(
             this IEnumerable<float?> source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             float sum = 0;
             long count = 0;
@@ -556,7 +556,7 @@ namespace System.Linq
         public static float? Min(
             this IEnumerable<float?> source) 
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
             
             return MinMaxImpl(source.Where(x => x != null), null, (min, x) => min < x);
         }
@@ -581,7 +581,7 @@ namespace System.Linq
         public static float? Max(
             this IEnumerable<float?> source) 
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
             
             return MinMaxImpl(source.Where(x => x != null), 
                 null, (max, x) => x == null || (max != null && x.Value < max.Value));
@@ -606,7 +606,7 @@ namespace System.Linq
         public static double Sum(
             this IEnumerable<double> source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             double sum = 0;
             foreach (var num in source)
@@ -635,7 +635,7 @@ namespace System.Linq
         public static double Average(
             this IEnumerable<double> source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             double sum = 0;
             long count = 0;
@@ -674,7 +674,7 @@ namespace System.Linq
         public static double? Sum(
             this IEnumerable<double?> source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             double sum = 0;
             foreach (var num in source)
@@ -703,7 +703,7 @@ namespace System.Linq
         public static double? Average(
             this IEnumerable<double?> source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             double sum = 0;
             long count = 0;
@@ -742,7 +742,7 @@ namespace System.Linq
         public static double? Min(
             this IEnumerable<double?> source) 
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
             
             return MinMaxImpl(source.Where(x => x != null), null, (min, x) => min < x);
         }
@@ -767,7 +767,7 @@ namespace System.Linq
         public static double? Max(
             this IEnumerable<double?> source) 
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
             
             return MinMaxImpl(source.Where(x => x != null), 
                 null, (max, x) => x == null || (max != null && x.Value < max.Value));
@@ -792,7 +792,7 @@ namespace System.Linq
         public static decimal Sum(
             this IEnumerable<decimal> source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             decimal sum = 0;
             foreach (var num in source)
@@ -821,7 +821,7 @@ namespace System.Linq
         public static decimal Average(
             this IEnumerable<decimal> source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             decimal sum = 0;
             long count = 0;
@@ -860,7 +860,7 @@ namespace System.Linq
         public static decimal? Sum(
             this IEnumerable<decimal?> source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             decimal sum = 0;
             foreach (var num in source)
@@ -889,7 +889,7 @@ namespace System.Linq
         public static decimal? Average(
             this IEnumerable<decimal?> source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             decimal sum = 0;
             long count = 0;
@@ -928,7 +928,7 @@ namespace System.Linq
         public static decimal? Min(
             this IEnumerable<decimal?> source) 
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
             
             return MinMaxImpl(source.Where(x => x != null), null, (min, x) => min < x);
         }
@@ -953,7 +953,7 @@ namespace System.Linq
         public static decimal? Max(
             this IEnumerable<decimal?> source) 
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
             
             return MinMaxImpl(source.Where(x => x != null), 
                 null, (max, x) => x == null || (max != null && x.Value < max.Value));

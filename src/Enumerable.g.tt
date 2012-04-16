@@ -92,7 +92,7 @@ namespace System.Linq
         public static <#= csType #> Sum(
             this IEnumerable<<#= csType #>> source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             <#= csBaseType #> sum = 0;
             foreach (var num in source)
@@ -126,7 +126,7 @@ namespace System.Linq
         public static <#= csAvgType #> Average(
             this IEnumerable<<#= csType #>> source)
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
 
             <#= csSumType #> sum = 0;
             long count = 0;
@@ -166,7 +166,7 @@ namespace System.Linq
         public static <#= csType #> Min(
             this IEnumerable<<#= csType #>> source) 
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
             
             return MinMaxImpl(source.Where(x => x != null), null, (min, x) => min < x);
         }
@@ -191,7 +191,7 @@ namespace System.Linq
         public static <#= csType #> Max(
             this IEnumerable<<#= csType #>> source) 
         {
-            CheckNotNull(source, "source");
+            if (source == null) throw new ArgumentNullException("source");
             
             return MinMaxImpl(source.Where(x => x != null), 
                 null, (max, x) => x == null || (max != null && x.Value < max.Value));
