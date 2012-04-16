@@ -1291,36 +1291,36 @@ namespace LinqBridge.Tests
             var persons = Read(Person.CreatePersons());
             Assert.That(persons.Max(p => p.Age), Is.EqualTo(24));
         }
-		
-		[Test]
-		public void Max_NullableIntsWithSelector_ReturnsMaxValue()
-		{
-			Assert.That(Read<int?>(1, 2, 3, null).Max(x => x.HasValue ? x * 2 : null), Is.EqualTo(6));
-		}
+        
+        [Test]
+        public void Max_NullableIntsWithSelector_ReturnsMaxValue()
+        {
+            Assert.That(Read<int?>(1, 2, 3, null).Max(x => x.HasValue ? x * 2 : null), Is.EqualTo(6));
+        }
 
-		[Test]
-		public void Max_NullableLongsWithSelector_ReturnsMaxValue()
-		{
-			Assert.That(Read<long?>(1L, 2L, 3L, null).Max(x => x.HasValue ? x * 2 : null), Is.EqualTo(6));
-		}
+        [Test]
+        public void Max_NullableLongsWithSelector_ReturnsMaxValue()
+        {
+            Assert.That(Read<long?>(1L, 2L, 3L, null).Max(x => x.HasValue ? x * 2 : null), Is.EqualTo(6));
+        }
 
-		[Test]
-		public void Max_NullableDoublesWithSelector_ReturnsMaxValue()
-		{
-			Assert.That(Read<double?>(1.0, 2.0, 3.0, null).Max(x => x.HasValue ? x * 2 : null), Is.EqualTo(6));
-		}
+        [Test]
+        public void Max_NullableDoublesWithSelector_ReturnsMaxValue()
+        {
+            Assert.That(Read<double?>(1.0, 2.0, 3.0, null).Max(x => x.HasValue ? x * 2 : null), Is.EqualTo(6));
+        }
 
-		[Test]
-		public void Max_NullableDecimalsWithSelector_ReturnsMaxValue()
-		{
-			Assert.That(Read<decimal?>(1m, 2m, 3m, null).Max(x => x.HasValue ? x * 2 : null), Is.EqualTo(6));
-		}
+        [Test]
+        public void Max_NullableDecimalsWithSelector_ReturnsMaxValue()
+        {
+            Assert.That(Read<decimal?>(1m, 2m, 3m, null).Max(x => x.HasValue ? x * 2 : null), Is.EqualTo(6));
+        }
 
-		[Test]
-		public void Max_NullableFloatsWithSelector_ReturnsMaxValue()
-		{
-			Assert.That(Read<float?>(1F, 2F, 3F, null).Max(x => x.HasValue ? x * 2 : null), Is.EqualTo(6));
-		}
+        [Test]
+        public void Max_NullableFloatsWithSelector_ReturnsMaxValue()
+        {
+            Assert.That(Read<float?>(1F, 2F, 3F, null).Max(x => x.HasValue ? x * 2 : null), Is.EqualTo(6));
+        }
 
         [Test]
         [ExpectedException(typeof(InvalidOperationException))]
@@ -1365,41 +1365,41 @@ namespace LinqBridge.Tests
             Assert.That(source.Min(), Is.EqualTo(1.111m).Within(0.01));
         }
 
-		[Test]
-		public void Min_NullableIntsWithSelector_ReturnsMinimumNonNullValue()
-		{
-			Assert.That(Read<long?>(199, 10, null, 30).Min(x => x.HasValue ? x * 2 : null), Is.EqualTo(20));
-		}
+        [Test]
+        public void Min_NullableIntsWithSelector_ReturnsMinimumNonNullValue()
+        {
+            Assert.That(Read<long?>(199, 10, null, 30).Min(x => x.HasValue ? x * 2 : null), Is.EqualTo(20));
+        }
 
-		[Test]
-		public void Min_NullableLongsWithSelector_ReturnsMinimumNonNullValue()
-		{
-			Assert.That(Read<long?>(199L, 10L, null, 30L).Min(x => x.HasValue ? x * 2 : null), Is.EqualTo(20));
-		}
+        [Test]
+        public void Min_NullableLongsWithSelector_ReturnsMinimumNonNullValue()
+        {
+            Assert.That(Read<long?>(199L, 10L, null, 30L).Min(x => x.HasValue ? x * 2 : null), Is.EqualTo(20));
+        }
 
-		[Test]
-		public void Min_NullableFloatsWithSelector_ReturnsMinimumNonNullValue()
-		{
-			Assert.That(Read<float?>(199f, 10f, null, 30f).Min(x => x.HasValue ? x * 2 : null), Is.EqualTo(20));
-		}
+        [Test]
+        public void Min_NullableFloatsWithSelector_ReturnsMinimumNonNullValue()
+        {
+            Assert.That(Read<float?>(199f, 10f, null, 30f).Min(x => x.HasValue ? x * 2 : null), Is.EqualTo(20));
+        }
 
-		[Test]
-		public void Min_NullableDoublesWithSelector_ReturnsMinimumNonNullValue()
-		{
-			Assert.That(Read<double?>(199L, 10L, null, 30L).Min(x => x.HasValue ? x * 2 : null), Is.EqualTo(20));
-		}
+        [Test]
+        public void Min_NullableDoublesWithSelector_ReturnsMinimumNonNullValue()
+        {
+            Assert.That(Read<double?>(199L, 10L, null, 30L).Min(x => x.HasValue ? x * 2 : null), Is.EqualTo(20));
+        }
 
-		[Test]
-		public void Min_NullableDecimalsWithSelector_ReturnsMinimumNonNullValue()
-		{
-			Assert.That(Read<decimal?>(199m, 10m, null, 30m).Min(x => x.HasValue ? x * 2 : null), Is.EqualTo(20));
-		}
+        [Test]
+        public void Min_NullableDecimalsWithSelector_ReturnsMinimumNonNullValue()
+        {
+            Assert.That(Read<decimal?>(199m, 10m, null, 30m).Min(x => x.HasValue ? x * 2 : null), Is.EqualTo(20));
+        }
 
-		[Test]
-		public void Min_StringsWithSelector_ReturnsMinimum()
-		{
-			Assert.That(Read("the", "quick", "brown", "fox").Min(x => x.Last() + x), Is.EqualTo("ethe"));
-		}
+        [Test]
+        public void Min_StringsWithSelector_ReturnsMinimum()
+        {
+            Assert.That(Read("the", "quick", "brown", "fox").Min(x => x.Last() + x), Is.EqualTo("ethe"));
+        }
 
         [Test]
         public void Min_Chars_ReturnsMinimumBySortOrder()
