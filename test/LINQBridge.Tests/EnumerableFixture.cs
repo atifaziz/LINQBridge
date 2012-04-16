@@ -621,6 +621,14 @@ namespace LinqBridge.Tests
             first.Except(second, StringComparer.CurrentCultureIgnoreCase).AssertEquals("john", "simon");
         }
 
+        [Test(Description = "http://code.google.com/p/linqbridge/issues/detail?id=24")]
+        public void Except_SourcesWithNull_ReturnsDifference()
+        {
+            var first = Read("abc", null);
+            var second = Read("bcd", null);
+            first.Except(second).AssertEquals("abc");
+        }
+
         [Test]
         [ExpectedException(typeof(InvalidOperationException))]
         public void First_EmptySource_ThrowsInvalidOperationException()
@@ -1047,6 +1055,14 @@ namespace LinqBridge.Tests
             var second = Read("Heinrich", "hubert", "Joseph");
             var result = first.Intersect(second, StringComparer.CurrentCultureIgnoreCase);
             result.AssertEquals("Heinrich", "Hubert");
+        }
+
+        [Test(Description = "http://code.google.com/p/linqbridge/issues/detail?id=24")]
+        public void Intersect_SourcesWithNull_YieldsCommonSet()
+        {
+            var first = Read("abc", null);
+            var second = Read("bcd", null);
+            first.Intersect(second).AssertThat(Is.EqualTo, new string[] { null });
         }
 
         [Test]

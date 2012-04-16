@@ -1517,23 +1517,32 @@ namespace System.Linq
             CheckNotNull(second, "second");
 
             var keys = new List<TSource>();
+            var nullFlag = false;
             var flags = new Dictionary<TSource, bool>(comparer);
 
-            foreach (var item in first.Where(k => !flags.ContainsKey(k)))
+            foreach (var item in first.Where(k => k == null ? !nullFlag : !flags.ContainsKey(k)))
             {
-                flags.Add(item, !flag);
+                if (item == null)
+                    nullFlag = !flag;
+                else
+                    flags.Add(item, !flag);
                 keys.Add(item);
             }
 
-            foreach (var item in second.Where(flags.ContainsKey))
-                flags[item] = flag;
+            foreach (var item in second.Where(k => k == null ? nullFlag : flags.ContainsKey(k)))
+            {
+                if (item == null)
+                    nullFlag = flag;
+                else
+                    flags[item] = flag;
+            }
 
             //
             // As per docs, "the marked elements are yielded in the order in 
             // which they were collected.
             //
 
-            return keys.Where(item => flags[item]);
+            return keys.Where(item => item == null ? nullFlag : flags[item]);
         }
 
         /// <summary>
