@@ -25,7 +25,7 @@
 //
 #endregion
 
-// $Id: Enumerable.cs c8b5b8ba1fbc 2011-04-30 19:06:40Z azizatif $
+// $Id$
 
 namespace System.Linq
 {

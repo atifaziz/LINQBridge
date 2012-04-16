@@ -25,7 +25,7 @@
 //
 #endregion
 
-// $Id: Lookup.cs c74eb37b988b 2011-04-30 14:13:04Z azizatif $
+// $Id$
 
 namespace System.Linq
 {

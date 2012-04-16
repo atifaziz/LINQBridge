@@ -44,7 +44,7 @@
 //
 #endregion
 
-// $Id: Enumerable.g.tt 215 2009-10-03 13:31:49Z azizatif $
+// $Id$
 
 namespace System.Linq
 {
