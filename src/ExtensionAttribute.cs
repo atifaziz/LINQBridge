@@ -25,6 +25,8 @@
 //
 #endregion
 
+// $Id$
+
 namespace System.Runtime.CompilerServices
 {
     /// <remarks>
