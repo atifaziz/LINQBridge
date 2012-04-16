@@ -1493,6 +1493,16 @@ namespace LinqBridge.Tests
             }
         }
 
+        [Test(Description = "http://code.google.com/p/linqbridge/issues/detail?id=23")]
+        public void OrderBy_KeySelector_Deterministic()
+        {
+            var values = "abcd".ToCharArray();
+            var key = values.Length;
+            values = values.OrderBy(_ => key--).ToArray();
+            Assert.AreEqual("dcba", new String(values));
+            Assert.AreEqual(0, key, "Key for every element is computed only once");
+        }
+
         [Test]
         public void ThenBy_KeySelector_DataWithDuplicateKeys_YieldsStablySortedData()
         {

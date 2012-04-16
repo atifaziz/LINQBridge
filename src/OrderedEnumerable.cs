@@ -34,6 +34,7 @@ namespace LinqBridge
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Linq;
 
     #endregion
@@ -41,98 +42,67 @@ namespace LinqBridge
     internal sealed class OrderedEnumerable<T, K> : IOrderedEnumerable<T>
     {
         private readonly IEnumerable<T> _source;
-        private readonly List<Comparison<T>> _comparisons;
+        private readonly Func<T[], IComparer<int>, IComparer<int>> _comparerComposer;
 
         public OrderedEnumerable(IEnumerable<T> source, 
             Func<T, K> keySelector, IComparer<K> comparer, bool descending) :
-            this(source, null, keySelector, comparer, descending) {}
+            this(source, (_, next) => next, keySelector, comparer, descending) {}
 
-        private OrderedEnumerable(IEnumerable<T> source, List<Comparison<T>> comparisons,
+        private OrderedEnumerable(IEnumerable<T> source, 
+            Func<T[], IComparer<int>, IComparer<int>> parent,
             Func<T, K> keySelector, IComparer<K> comparer, bool descending)
         {
             if (source == null) throw new ArgumentNullException("source");
             if (keySelector == null) throw new ArgumentNullException("keySelector");
-
+            Debug.Assert(parent != null);
+            
             _source = source;
             
             comparer = comparer ?? Comparer<K>.Default;
+            var direction = descending ? -1 : 1;
+            
+            _comparerComposer = (items, next) =>
+            {
+                Debug.Assert(items != null);
+                Debug.Assert(next != null);
 
-            if (comparisons == null)
-                comparisons = new List<Comparison<T>>(/* capacity */ 4);
-
-            comparisons.Add((x, y) 
-                => (descending ? -1 : 1) * comparer.Compare(keySelector(x), keySelector(y)));
-
-            _comparisons = comparisons;
+                var keys = new K[items.Length];
+                for (var i = 0; i < items.Length; i++)
+                    keys[i] = keySelector(items[i]);
+                
+                return parent(items, new DelegatingComparer<int>((i, j) =>
+                {
+                    var result = direction * comparer.Compare(keys[i], keys[j]);
+                    return result != 0 ? result : next.Compare(i, j);
+                }));
+            };
         }
 
         public IOrderedEnumerable<T> CreateOrderedEnumerable<KK>(
             Func<T, KK> keySelector, IComparer<KK> comparer, bool descending)
         {
-            return new OrderedEnumerable<T, KK>(_source, _comparisons, keySelector, comparer, descending);
+            return new OrderedEnumerable<T, KK>(_source, _comparerComposer, keySelector, comparer, descending);
         }
 
         public IEnumerator<T> GetEnumerator()
         {
             //
-            // We sort using List<T>.Sort, but docs say that it performs an 
+            // Sort using Array.Sort but docs say that it performs an 
             // unstable sort. LINQ, on the other hand, says OrderBy performs 
-            // a stable sort. So convert the source sequence into a sequence 
-            // of tuples where the second element tags the position of the 
-            // element from the source sequence (First). The position is 
-            // then used as a tie breaker when all keys compare equal,
-            // thus making the sort stable.
+            // a stable sort. Use the item position then as a tie 
+            // breaker when all keys compare equal, thus making the sort 
+            // stable.
             //
 
-			var list = _source.Select(new Func<T, int, Tuple<T, int>>(TagPosition)).ToList();
-            
-            list.Sort((x, y) => 
-            {
-                //
-                // Compare keys from left to right.
-                //
-
-                var comparisons = _comparisons;
-                for (var i = 0; i < comparisons.Count; i++)
-                {
-                    var result = comparisons[i](x.First, y.First);
-                    if (result != 0)
-                        return result;
-                }
-
-                //
-                // All keys compared equal so now break the tie by their
-                // position in the original sequence, making the sort stable.
-                //
-
-                return x.Second.CompareTo(y.Second);
-            });
-
-			return list.Select(new Func<Tuple<T, int>, T>(GetFirst)).GetEnumerator();
-
+            var items = _source.ToArray();
+            var positionComparer = new DelegatingComparer<int>((i, j) => i.CompareTo(j));
+            var comparer = _comparerComposer(items, positionComparer);
+            var keys = new int[items.Length];
+            for (var i = 0; i < keys.Length; i++)
+                keys[i] = i;
+            Array.Sort(keys, items, comparer);
+            return ((IEnumerable<T>) items).GetEnumerator();
         }
-
-        /// <remarks>
-        /// See <a href="http://code.google.com/p/linqbridge/issues/detail?id=11">issue #11</a>
-        /// for why this method is needed and cannot be expressed as a 
-        /// lambda at the call site.
-        /// </remarks>
-
-		private static Tuple<T, int> TagPosition(T e, int i)
-		{
-			return new Tuple<T, int>(e, i);
-		}
-
-        /// <remarks>
-        /// See <a href="http://code.google.com/p/linqbridge/issues/detail?id=11">issue #11</a>
-        /// for why this method is needed and cannot be expressed as a 
-        /// lambda at the call site.
-        /// </remarks>
-
-        private static T GetFirst(Tuple<T, int> pv)
-		{
-			return pv.First;
-		}
 
         IEnumerator IEnumerable.GetEnumerator()
         {

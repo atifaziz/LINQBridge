@@ -37,6 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Action.cs" />
+    <Compile Include="DelegatingComparer.cs" />
     <Compile Include="Enumerable.cs" />
     <Compile Include="Enumerable.g.cs">
       <AutoGen>True</AutoGen>
@@ -52,7 +53,6 @@
     <Compile Include="OrderedEnumerable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Public.cs" />
-    <Compile Include="Tuple.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
