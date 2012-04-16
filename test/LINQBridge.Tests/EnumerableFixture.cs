@@ -1595,7 +1595,7 @@ namespace LinqBridge.Tests
         {
             var persons = Read(Person.CreatePersons());
             var result = persons.OrderByDescending(p => p.Age);
-            int age = 25;
+            var age = 25;
             foreach (var person in result)
             {
                 age--;
@@ -1666,7 +1666,7 @@ namespace LinqBridge.Tests
             var persons = Read(Person.CreatePersons());
             var result = persons.SelectMany(p => p.FirstName.ToCharArray());
             var check = "PeterHerbertHubertIsidor".ToCharArray();
-            int count = 0; // BUGBUG Collapse loop-based check with array assertion!
+            var count = 0; // BUGBUG Collapse loop-based check with array assertion!
             foreach (var c in result)
             {
                 Assert.That(c, Is.EqualTo(check[count]));
@@ -2131,7 +2131,7 @@ namespace LinqBridge.Tests
         {
             var source = Read("1", "2", "3");
             var result = source.ToDictionary(s => int.Parse(s));
-            int check = 1;
+            var check = 1;
             foreach (var pair in result)
             {
                 Assert.That(pair.Key, Is.EqualTo(check));
@@ -2146,7 +2146,7 @@ namespace LinqBridge.Tests
         {
             var source = Read(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
             var result = source.ToDictionary(i => i.ToString(), i => Math.Sqrt(double.Parse(i.ToString())));
-            int check = 1;
+            var check = 1;
             foreach (var pair in result)
             {
                 Assert.That(pair.Key, Is.EqualTo(check.ToString()));
