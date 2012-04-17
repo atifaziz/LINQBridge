@@ -50,5 +50,5 @@ using System.Security;
 
 [assembly: Guid("1d8ca19d-f7ef-47f2-8144-4099aab2b2b7")]
 
-[assembly: AssemblyVersion("1.2.0.0")]
-[assembly: AssemblyFileVersion("1.2.13216.2214")]
+[assembly: AssemblyVersion("1.3.0.0")]
+[assembly: AssemblyFileVersion("1.3.14717.2012")]
