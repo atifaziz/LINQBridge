@@ -27,15 +27,21 @@
 
 // $Id$
 
-using System.Collections.Generic;
+#if LINQBRIDGE_LIB
+
 namespace System.Linq
 {
-#if LINQBRIDGE_LIB
+    using System.Collections.Generic;
 
     public partial class Enumerable { }
     public partial interface IGrouping<out TKey, TElement>: IEnumerable<TElement> { }
     public partial interface ILookup<TKey, TElement> { }
     public partial interface IOrderedEnumerable<TElement> { }
+}
+
+namespace System.Runtime.CompilerServices
+{
+    public partial class ExtensionAttribute { }
+}
 
 #endif
-}

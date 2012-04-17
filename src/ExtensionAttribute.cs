@@ -39,5 +39,5 @@ namespace System.Runtime.CompilerServices
     /// </remarks>
 
     [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class | AttributeTargets.Assembly)]
-    public sealed class ExtensionAttribute : Attribute { }
+    sealed partial class ExtensionAttribute : Attribute { }
 }
