@@ -31,10 +31,8 @@
 
 namespace System.Linq
 {
-    using System.Collections.Generic;
-
     public partial class Enumerable { }
-    public partial interface IGrouping<out TKey, TElement>: IEnumerable<TElement> { }
+    public partial interface IGrouping<out TKey, TElement> { }
     public partial interface ILookup<TKey, TElement> { }
     public partial interface IOrderedEnumerable<TElement> { }
 }
