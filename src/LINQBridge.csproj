@@ -37,7 +37,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Action.cs" />
-    <Compile Include="DelegatingComparer.cs" />
     <Compile Include="Enumerable.cs" />
     <Compile Include="Enumerable.g.cs">
       <AutoGen>True</AutoGen>
