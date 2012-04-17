@@ -35,7 +35,6 @@ namespace System.Linq
     using System.Collections;
     using System.Collections.Generic;
     using IEnumerable=System.Collections.IEnumerable;
-
     using LinqBridge;
 
     #endregion
@@ -46,18 +45,18 @@ namespace System.Linq
 
     internal sealed class Lookup<TKey, TElement> : ILookup<TKey, TElement>
     {
-        private readonly Dictionary<Key, IGrouping<TKey, TElement>> _map;
-        private readonly List<Key> _orderedKeys; // remember order of insertion
+        private readonly Dictionary<Key<TKey>, IGrouping<TKey, TElement>> _map;
+        private readonly List<Key<TKey>> _orderedKeys; // remember order of insertion
 
         internal Lookup(IEqualityComparer<TKey> comparer)
         {
-            _map = new Dictionary<Key, IGrouping<TKey, TElement>>(new KeyComparer(comparer));
-            _orderedKeys = new List<Key>();
+            _map = new Dictionary<Key<TKey>, IGrouping<TKey, TElement>>(new KeyComparer<TKey>(comparer));
+            _orderedKeys = new List<Key<TKey>>();
         }
 
         internal void Add(IGrouping<TKey, TElement> item)
         {
-            var key = new Key(item.Key);
+            var key = new Key<TKey>(item.Key);
             _map.Add(key, item);
             _orderedKeys.Add(key);
         }
@@ -65,7 +64,7 @@ namespace System.Linq
         internal IEnumerable<TElement> Find(TKey key)
         {
             IGrouping<TKey, TElement> grouping;
-            return _map.TryGetValue(new Key(key), out grouping) ? grouping : null;
+            return _map.TryGetValue(new Key<TKey>(key), out grouping) ? grouping : null;
         }
 
         /// <summary>
@@ -86,7 +85,7 @@ namespace System.Linq
             get
             {
                 IGrouping<TKey, TElement> result;
-                return _map.TryGetValue(new Key(key), out result) ? result : Enumerable.Empty<TElement>();
+                return _map.TryGetValue(new Key<TKey>(key), out result) ? result : Enumerable.Empty<TElement>();
             }
         }
 
@@ -96,7 +95,7 @@ namespace System.Linq
 
         public bool Contains(TKey key)
         {
-            return _map.ContainsKey(new Key(key));
+            return _map.ContainsKey(new Key<TKey>(key));
         }
 
         /// <summary>
@@ -127,32 +126,6 @@ namespace System.Linq
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
-        }
-
-        struct Key
-        {
-            public Key(TKey value) : this() { Value = value; }
-            public TKey Value { get; private set; }
-        }
-
-        sealed class KeyComparer : IEqualityComparer<Key>
-        {
-            private readonly IEqualityComparer<TKey> _innerComparer;
-
-            public KeyComparer(IEqualityComparer<TKey> innerComparer)
-            {
-                _innerComparer = innerComparer ?? EqualityComparer<TKey>.Default;
-            }
-
-            public bool Equals(Key x, Key y)
-            {
-                return _innerComparer.Equals(x.Value, y.Value);
-            }
-
-            public int GetHashCode(Key obj)
-            {
-                return obj.Value == null ? 0 : _innerComparer.GetHashCode(obj.Value);
-            }
         }
     }
 }

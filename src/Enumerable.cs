@@ -1516,25 +1516,24 @@ namespace System.Linq
             if (first == null) throw new ArgumentNullException("first");
             if (second == null) throw new ArgumentNullException("second");
 
-            var keys = new List<TSource>();
-            var nullFlag = false;
-            var flags = new Dictionary<TSource, bool>(comparer);
+            var keys = new List<Key<TSource>>();
+            var flags = new Dictionary<Key<TSource>, bool>(new KeyComparer<TSource>(comparer));
 
-            foreach (var item in first.Where(k => k == null ? !nullFlag : !flags.ContainsKey(k)))
+            foreach (var item in from item in first
+                                 select new Key<TSource>(item) into item
+                                 where !flags.ContainsKey(item)
+                                 select item)
             {
-                if (item == null)
-                    nullFlag = !flag;
-                else
-                    flags.Add(item, !flag);
+                flags.Add(item, !flag);
                 keys.Add(item);
             }
 
-            foreach (var item in second.Where(k => k == null ? nullFlag : flags.ContainsKey(k)))
+            foreach (var item in from item in second
+                                 select new Key<TSource>(item) into item
+                                 where flags.ContainsKey(item)
+                                 select item)
             {
-                if (item == null)
-                    nullFlag = flag;
-                else
-                    flags[item] = flag;
+                flags[item] = flag;
             }
 
             //
@@ -1542,7 +1541,7 @@ namespace System.Linq
             // which they were collected.
             //
 
-            return keys.Where(item => item == null ? nullFlag : flags[item]);
+            return from item in keys where flags[item] select item.Value;
         }
 
         /// <summary>
