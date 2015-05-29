@@ -24,8 +24,18 @@ REM (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 REM OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 REM
 REM -------------------------------------------------------------------------
-REM
 
-for %%i in (Debug Release) do (
-    "%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\msbuild" /p:Configuration=%%i "%~dp0LINQBridge.sln" %*
-)
+pushd "%~dp0"
+call :main %*
+popd
+goto:EOF
+
+:main
+setlocal
+nuget restore && call :build Debug %* && call :build Release %*
+goto :EOF
+
+:build
+setlocal
+"%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\msbuild" "/p:Configuration=%~1" "%~dp0LINQBridge.sln" %2 %3 %4 %5 %6 %7 %8 %9
+goto :EOF

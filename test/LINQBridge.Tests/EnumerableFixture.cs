@@ -37,7 +37,6 @@ namespace LinqBridge.Tests
     using System.Reflection;
     using NUnit.Framework;
     using System.Linq;
-    using NUnit.Framework.SyntaxHelpers;
     using System.Diagnostics;
     using ExtensionAttribute = System.Runtime.CompilerServices.ExtensionAttribute;
 
