@@ -30,7 +30,10 @@ LINQBridge also includes Framework 3.5's generic [`Func`][Func] and
 [`Action`][Action] delegates, as well as [`ExtensionAttribute`][Extension],
 allowing you to use C# 3.0's extension methods in Framework 2.0.
 
-In fact LINQBridge lets you use nearly all of the features in C# 3.0 with Framework 2.0, including extension methods, lambda functions and query comprehensions. The only feature it does not support is compiling lambdas to expression trees (i.e., [Expression<TDelegate>](http://msdn.microsoft.com/en-us/library/bb335710.aspx)).
+In fact LINQBridge lets you use nearly all of the features in C# 3.0 with
+Framework 2.0, including extension methods, lambda functions and query
+comprehensions. The only feature it does not support is compiling lambdas to
+expression trees (i.e., [`Expression<TDelegate>`](http://msdn.microsoft.com/en-us/library/bb335710.aspx)).
 
 
 ## How does it work?
