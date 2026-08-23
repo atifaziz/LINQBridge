@@ -77,7 +77,7 @@ The compiler then looks for `Where`, `OrderBy` and `Select` methods. The
 critical thing is that it can find appropriately named methods with the
 correct signatures (typically extension methods). **But it doesn't matter what
 assembly the methods come from.** LINQBridge simply provides another source of
-these methods that are functionally identically to those implemented in the
+these methods that are functionally identical to those implemented in the
 Framework 3.5 assemblies.
 
 
