@@ -1,5 +1,3 @@
-
-
 # LINQBridge
 
 You might already have discovered that **LINQ is addictive**: once you're
