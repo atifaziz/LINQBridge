@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>DynamicBridge.Tests</RootNamespace>
+    <AssemblyName>DynamicBridge.Tests</AssemblyName>
+    <!-- net35 as well as net30: on net35 the bridge compiles against the real 3.5 System.Core rather
+         than LinqBridge, so it is a materially different build and needs its own run. -->
+    <TargetFrameworks>net30;net35</TargetFrameworks>
+    <TargetFrameworkSubset />
+    <LangVersion>latest</LangVersion>
+    <NoWarn>1685</NoWarn>
+    <DebugType>full</DebugType>
+    <IsPackable>false</IsPackable>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)'=='net35'">
+    <!-- On net35 System.Linq.Expressions comes from the real 3.5 System.Core, whose ExpressionType
+         stops at TypeIs; assertions about the 4.0 members belong to the LinqBridge build only. -->
+    <DefineConstants>$(DefineConstants);FRAMEWORK_EXPRESSIONS</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="NUnit" Version="2.6.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\DynamicBridge\DynamicBridge.csproj" />
+  </ItemGroup>
+</Project>

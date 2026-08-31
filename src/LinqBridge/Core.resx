@@ -1,0 +1,645 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Cryptography_InvalidPadding" xml:space="preserve">
+    <value>Padding is invalid and cannot be removed.</value>
+  </data>
+  <data name="ArgumentOutOfRange_ImpersonationOptionsInvalid" xml:space="preserve">
+    <value>impersonationOptions contains an invalid flag.</value>
+  </data>
+  <data name="InvalidOperation_PipeNotAsync" xml:space="preserve">
+    <value>Pipe is not opened in asynchronous mode.</value>
+  </data>
+  <data name="InvalidTimeZone_InvalidRegistryData" xml:space="preserve">
+    <value>The time zone ID '{0}' was found on the local computer, but the registry information was corrupt.</value>
+  </data>
+  <data name="Argument_OutOfOrderDateTimes" xml:space="preserve">
+    <value>The DateStart property must come before the DateEnd property.</value>
+  </data>
+  <data name="Argument_DateTimeHasTimeOfDay" xml:space="preserve">
+    <value>The supplied DateTime includes a TimeOfDay setting.   This is not supported.</value>
+  </data>
+  <data name="IndexOutOfRange_IORaceCondition" xml:space="preserve">
+    <value>Probable I/O race condition detected while copying memory. The I/O package is not thread safe by default unless stated otherwise. In multithreaded applications, access streams in a thread-safe way, such as a thread-safe wrapper returned by TextReader's or TextWriter's Synchronized methods. This also applies to classes like StreamWriter and StreamReader.</value>
+  </data>
+  <data name="Cryptography_OpenEphemeralKeyHandleWithoutEphemeralFlag" xml:space="preserve">
+    <value>The CNG key handle being opened was detected to be ephemeral, but the EphemeralKey open option was not specified.</value>
+  </data>
+  <data name="ObjectDisposed_PipeClosed" xml:space="preserve">
+    <value>Cannot access a closed pipe.</value>
+  </data>
+  <data name="InvalidOperation_EndWaitForConnectionCalledMultiple" xml:space="preserve">
+    <value>EndWaitForConnection can only be called once for each asynchronous operation.</value>
+  </data>
+  <data name="Argument_DateTimeKindMustBeUnspecified" xml:space="preserve">
+    <value>The supplied DateTime must have the Kind property set to DateTimeKind.Unspecified.</value>
+  </data>
+  <data name="SynchronizationLockException_IncorrectDispose" xml:space="preserve">
+    <value>The lock is being disposed while still being used. It either is being held by a thread and/or has active waiters waiting to acquire the lock.</value>
+  </data>
+  <data name="ArgumentOutOfRange_AdditionalAccessLimited" xml:space="preserve">
+    <value>additionalAccessRights is limited to the PipeAccessRights.ChangePermissions, PipeAccessRights.TakeOwnership, and PipeAccessRights.AccessSystemSecurity flags when creating NamedPipeServerStreams.</value>
+  </data>
+  <data name="LockRecursionException_ReadAfterWriteNotAllowed" xml:space="preserve">
+    <value>A read lock may not be acquired with the write lock held in this mode.</value>
+  </data>
+  <data name="LockRecursionException_UpgradeAfterWriteNotAllowed" xml:space="preserve">
+    <value>Upgradeable lock may not be acquired with write lock held in this mode. Acquiring Upgradeable lock gives the ability to read along with an option to upgrade to a writer.</value>
+  </data>
+  <data name="InvalidOperation_PipeClosed" xml:space="preserve">
+    <value>Pipe is closed.</value>
+  </data>
+  <data name="Cryptography_InvalidKeySize" xml:space="preserve">
+    <value>The specified key is not a valid size for this algorithm.</value>
+  </data>
+  <data name="ObjectDisposed_ReaderClosed" xml:space="preserve">
+    <value>Cannot read from a closed TextReader.</value>
+  </data>
+  <data name="IO_IO_SharingViolation_File" xml:space="preserve">
+    <value>The process cannot access the file '{0}' because it is being used by another process.</value>
+  </data>
+  <data name="Cryptography_UnexpectedXmlNamespace" xml:space="preserve">
+    <value>The XML namespace '{0}' was unexpected, expected '{1}'.</value>
+  </data>
+  <data name="LockRecursionException_WriteAfterReadNotAllowed" xml:space="preserve">
+    <value>Write lock may not be acquired with read lock held. This pattern is prone to deadlocks. Please ensure that read locks are released before taking a write lock. If an upgrade is necessary, use an upgrade lock in place of the read lock.</value>
+  </data>
+  <data name="NotSupported_UnwritableStream" xml:space="preserve">
+    <value>Stream does not support writing.</value>
+  </data>
+  <data name="InvalidOperation_PipeAlreadyDisconnected" xml:space="preserve">
+    <value>Already in a disconnected state.</value>
+  </data>
+  <data name="ArgumentOutOfRange_NeedMaxFileSizeGEBufferSize" xml:space="preserve">
+    <value>Maximum file size value should be greater than or equal to bufferSize.</value>
+  </data>
+  <data name="NotSupported_AnonymousPipeUnidirectional" xml:space="preserve">
+    <value>Anonymous pipes can only be in one direction.</value>
+  </data>
+  <data name="LockRecursionException_RecursiveWriteNotAllowed" xml:space="preserve">
+    <value>Recursive write lock acquisitions not allowed in this mode.</value>
+  </data>
+  <data name="Serialization_CorruptField" xml:space="preserve">
+    <value>The value of the field '{0}' is invalid.  The serialized data is corrupt.  </value>
+  </data>
+  <data name="PlatformNotSupported_NamedPipeServers" xml:space="preserve">
+    <value>Named Pipe Servers are not supported on Windows 95/98/ME.</value>
+  </data>
+  <data name="Argument_DateTimeIsNotAmbiguous" xml:space="preserve">
+    <value>The supplied DateTime is not in an ambiguous time range.</value>
+  </data>
+  <data name="IO_IO_SharingViolation_NoFileName" xml:space="preserve">
+    <value>The process cannot access the file because it is being used by another process.</value>
+  </data>
+  <data name="Perflib_PlatformNotSupported" xml:space="preserve">
+    <value>Classes in System.Diagnostics.PerformanceData is only supported in Windows Vista and above.</value>
+  </data>
+  <data name="IO_EOF_ReadBeyondEOF" xml:space="preserve">
+    <value>Unable to read beyond the end of the stream.</value>
+  </data>
+  <data name="InvalidOperation_PipeMessageTypeNotSupported" xml:space="preserve">
+    <value>This pipe does not support message type transmission.</value>
+  </data>
+  <data name="ArgumentOutOfRange_DirectionModeInOrOut" xml:space="preserve">
+    <value>PipeDirection.In or PipeDirection.Out required.</value>
+  </data>
+  <data name="ArgumentOutOfRange_NeedValidId" xml:space="preserve">
+    <value>The ID parameter must be in the range {0} through {1}.</value>
+  </data>
+  <data name="NotSupported_MemStreamNotExpandable" xml:space="preserve">
+    <value>Memory stream is not expandable.</value>
+  </data>
+  <data name="Perflib_InvalidOperation_CounterRefValue" xml:space="preserve">
+    <value>Cannot locate raw counter data location for CounterSet '{0}', Counter '{1}, in Instance '{2}'.</value>
+  </data>
+  <data name="IO_PathNotFound_Path" xml:space="preserve">
+    <value>Could not find a part of the path '{0}'.</value>
+  </data>
+  <data name="NotSupported_DownLevelVista" xml:space="preserve">
+    <value>This functionality is only supported in Windows Vista and above.</value>
+  </data>
+  <data name="InvalidOperation_EnumFailedVersion" xml:space="preserve">
+    <value>Collection was modified; enumeration operation may not execute.</value>
+  </data>
+  <data name="Cryptography_ArgECDHRequiresECDHKey" xml:space="preserve">
+    <value>Keys used with the ECDiffieHellmanCng algorithm must have an algorithm group of ECDiffieHellman.</value>
+  </data>
+  <data name="Cryptography_MissingIV" xml:space="preserve">
+    <value>The cipher mode specified requires that an initialization vector (IV) be used.</value>
+  </data>
+  <data name="Cryptography_ArgExpectedECDiffieHellmanCngPublicKey" xml:space="preserve">
+    <value>DeriveKeyMaterial requires an ECDiffieHellmanCngPublicKey.</value>
+  </data>
+  <data name="Cryptography_InvalidProviderName" xml:space="preserve">
+    <value>The provider name '{0}' is invalid.</value>
+  </data>
+  <data name="NotSupported_UnseekableStream" xml:space="preserve">
+    <value>Stream does not support seeking.</value>
+  </data>
+  <data name="ArgumentOutOfRange_Day" xml:space="preserve">
+    <value>The Day parameter must be in the range 1 through 31.</value>
+  </data>
+  <data name="Argument_DateTimeHasTicks" xml:space="preserve">
+    <value>The supplied DateTime must have the Year, Month, and Day properties set to 1.  The time cannot be specified more precisely than whole milliseconds.</value>
+  </data>
+  <data name="Arg_ArrayPlusOffTooSmall" xml:space="preserve">
+    <value>Destination array is not long enough to copy all the items in the collection. Check array index and length.</value>
+  </data>
+  <data name="Security_CannotReadRegistryData" xml:space="preserve">
+    <value>The time zone ID '{0}' was found on the local computer, but the application does not have permission to read the registry information.</value>
+  </data>
+  <data name="IO_FileNotFound" xml:space="preserve">
+    <value>Unable to find the specified file.</value>
+  </data>
+  <data name="NotSupported_AnonymousPipeMessagesNotSupported" xml:space="preserve">
+    <value>Anonymous pipes do not support PipeTransmissionMode.Message ReadMode.</value>
+  </data>
+  <data name="LockRecursionException_UpgradeAfterReadNotAllowed" xml:space="preserve">
+    <value>Upgradeable lock may not be acquired with read lock held.</value>
+  </data>
+  <data name="Perflib_InvalidOperation_NoActiveProvider" xml:space="preserve">
+    <value>CounterSet provider '{0}' not active.</value>
+  </data>
+  <data name="Serialization_MissingKeys" xml:space="preserve">
+    <value>The Keys for this dictionary are missing.</value>
+  </data>
+  <data name="Perflib_InsufficientMemory_InstanceCounterBlock" xml:space="preserve">
+    <value>Cannot allocate raw counter data for CounterSet '{0}' Instance '{1}'.</value>
+  </data>
+  <data name="ArgumentOutOfRange_HandleInheritabilityNoneOrInheritable" xml:space="preserve">
+    <value>HandleInheritability.None or HandleInheritability.Inheritable required.</value>
+  </data>
+  <data name="IO_PathTooLong" xml:space="preserve">
+    <value>The specified path, file name, or both are too long. The fully qualified file name must be less than 260 characters, and the directory name must be less than 248 characters.</value>
+  </data>
+  <data name="Perflib_Argument_EmptyInstanceName" xml:space="preserve">
+    <value>Non-empty instanceName required.</value>
+  </data>
+  <data name="Serialization_InvalidEscapeSequence" xml:space="preserve">
+    <value>The serialized data contained an invalid escape sequence '\{0}'.</value>
+  </data>
+  <data name="Argument_AdjustmentRulesOutOfOrder" xml:space="preserve">
+    <value>The elements of the AdjustmentRule array must be in chronological order and must not overlap.</value>
+  </data>
+  <data name="LockRecursionException_RecursiveReadNotAllowed" xml:space="preserve">
+    <value>Recursive read lock acquisitions not allowed in this mode.</value>
+  </data>
+  <data name="InvalidOperation_PipeDisconnected" xml:space="preserve">
+    <value>Pipe is in a disconnected state.</value>
+  </data>
+  <data name="ArgumentOutOfRange_InvalidPipeAccessRights" xml:space="preserve">
+    <value>Invalid PipeAccessRights flag.</value>
+  </data>
+  <data name="Argument_TransitionTimesAreIdentical" xml:space="preserve">
+    <value>The DaylightTransitionStart property must not equal the DaylightTransitionEnd property.</value>
+  </data>
+  <data name="Cryptography_InvalidIVSize" xml:space="preserve">
+    <value>The specified initialization vector (IV) does not match the block size for this algorithm.</value>
+  </data>
+  <data name="ArgumentOutOfRange_NeedValidPipeAccessRights" xml:space="preserve">
+    <value>Need valid PipeAccessRights value.</value>
+  </data>
+  <data name="Argument_WrongAsyncResult" xml:space="preserve">
+    <value>IAsyncResult object did not come from the corresponding async method on this type.</value>
+  </data>
+  <data name="Argument_AdjustmentRulesrDaylightSavingTimeOverlapNonRuleRange" xml:space="preserve">
+    <value>The elements of the AdjustmentRule array must not contain Daylight Saving Time periods that overlap the DateStart or DateEnd properties in such a way as to cause invalid or ambiguous time periods.</value>
+  </data>
+  <data name="Perflib_Argument_InvalidCounterType" xml:space="preserve">
+    <value>CounterType '{0}' is not a valid CounterType.</value>
+  </data>
+  <data name="ObjectDisposed_WriterClosed" xml:space="preserve">
+    <value>Cannot write to a closed TextWriter.</value>
+  </data>
+  <data name="Perflib_InsufficientMemory_CounterSetTemplate" xml:space="preserve">
+    <value>Cannot allocate memory for CounterSet '{0}' template with size '{1}'.</value>
+  </data>
+  <data name="ArgumentOutOfRange_Week" xml:space="preserve">
+    <value>The Week parameter must be in the range 1 through 5.</value>
+  </data>
+  <data name="Perflib_Argument_CounterSetAlreadyRegister" xml:space="preserve">
+    <value>CounterSet '{0}' already registered.</value>
+  </data>
+  <data name="ArgumentNull_ServerName" xml:space="preserve">
+    <value>serverName cannot be null. Use "." for current machine.</value>
+  </data>
+  <data name="Cryptography_InvalidKeyBlobFormat" xml:space="preserve">
+    <value>The key blob format '{0}' is invalid.</value>
+  </data>
+  <data name="InvalidOperation_EndReadCalledMultiple" xml:space="preserve">
+    <value>EndRead can only be called once for each asynchronous operation.</value>
+  </data>
+  <data name="Argument_DateTimeIsInvalid" xml:space="preserve">
+    <value>The supplied DateTime represents an invalid time.  For example, when the clock is adjusted forward, any time in the period that is skipped is invalid.</value>
+  </data>
+  <data name="Argument_InvalidOffLen" xml:space="preserve">
+    <value>Offset and length were out of bounds for the array or count is greater than the number of elements from index to the end of the source collection.</value>
+  </data>
+  <data name="Cryptography_ArgECDHKeySizeMismatch" xml:space="preserve">
+    <value>The keys from both parties must be the same size to generate a secret agreement.</value>
+  </data>
+  <data name="Cryptography_MissingDomainParameters" xml:space="preserve">
+    <value>Could not read the domain parameters from the XML string.</value>
+  </data>
+  <data name="Argument_DateTimeOffsetIsNotAmbiguous" xml:space="preserve">
+    <value>The supplied DateTimeOffset is not in an ambiguous time range.</value>
+  </data>
+  <data name="InvalidOperation_PipeNotYetConnected" xml:space="preserve">
+    <value>Pipe hasn't been connected yet.</value>
+  </data>
+  <data name="InvalidOperation_PipeAlreadyConnected" xml:space="preserve">
+    <value>Already in a connected state.</value>
+  </data>
+  <data name="UnauthorizedAccess_IODenied_NoPathName" xml:space="preserve">
+    <value>Access to the path is denied.</value>
+  </data>
+  <data name="ArgumentOutOfRange_MaxStringsExceeded" xml:space="preserve">
+    <value>The number of String parameters must not exceed {0}.</value>
+  </data>
+  <data name="Perflib_InvalidOperation_InstanceNotFound" xml:space="preserve">
+    <value>Cannot find Instance '{0}' in CounterSet '{1}'.</value>
+  </data>
+  <data name="ArgumentOutOfRange_MaxArgExceeded" xml:space="preserve">
+    <value>The total number of parameters must not exceed {0}. </value>
+  </data>
+  <data name="IO_IO_NoPermissionToDirectoryName" xml:space="preserve">
+    <value>&lt;Path discovery permission to the specified directory was denied.&gt;</value>
+  </data>
+  <data name="ArgumentOutOfRange_Month" xml:space="preserve">
+    <value>The Month parameter must be in the range 1 through 12.</value>
+  </data>
+  <data name="Perflib_InvalidOperation_AddCounterAfterInstance" xml:space="preserve">
+    <value>Cannot AddCounter to CounterSet '{0}' after CreateCounterSetInstance.</value>
+  </data>
+  <data name="ArgumentOutOfRange_DirectionModeInOutOrInOut" xml:space="preserve">
+    <value>For named pipes, the pipe direction can be PipeDirection.In, PipeDirection.Out or PipeDirection.InOut. For anonymous pipes, the pipe direction can be PipeDirection.In or PipeDirection.Out.</value>
+  </data>
+  <data name="Cryptography_ECXmlSerializationFormatRequired" xml:space="preserve">
+    <value>XML serialization of an elliptic curve key requires using an overload which specifies the XML format to be used.</value>
+  </data>
+  <data name="NotSupported_IONonFileDevices" xml:space="preserve">
+    <value>Opening Win32 devices other than file such as COM ports, printers, disk partitions and tape drives is not supported. Avoid use of "\\.\" in the path.</value>
+  </data>
+  <data name="UnauthorizedAccess_IODenied_Path" xml:space="preserve">
+    <value>Access to the path '{0}' is denied.</value>
+  </data>
+  <data name="LockRecursionException_RecursiveUpgradeNotAllowed" xml:space="preserve">
+    <value>Recursive upgradeable lock acquisitions not allowed in this mode.</value>
+  </data>
+  <data name="Cryptography_ArgECDsaRequiresECDsaKey" xml:space="preserve">
+    <value>Keys used with the ECDsaCng algorithm must have an algorithm group of ECDsa.</value>
+  </data>
+  <data name="Cryptography_InvalidCipherMode" xml:space="preserve">
+    <value>The specified cipher mode is not valid for this algorithm.</value>
+  </data>
+  <data name="ArgumentOutOfRange_TransmissionModeByteOrMsg" xml:space="preserve">
+    <value>For named pipes, transmission mode can be TransmissionMode.Byte or PipeTransmissionMode.Message. For anonymous pipes, transmission mode can be TransmissionMode.Byte.</value>
+  </data>
+  <data name="Argument_InvalidId" xml:space="preserve">
+    <value>The specified ID parameter '{0}' is not supported.</value>
+  </data>
+  <data name="InvalidTimeZone_InvalidWin32APIData" xml:space="preserve">
+    <value>The Local time zone was found on the local computer, but the data was corrupt.</value>
+  </data>
+  <data name="IO_PathNotFound_NoPathName" xml:space="preserve">
+    <value>Could not find a part of the path.</value>
+  </data>
+  <data name="Cryptography_TransformBeyondEndOfBuffer" xml:space="preserve">
+    <value>Attempt to transform beyond end of buffer.</value>
+  </data>
+  <data name="Cryptography_UnknownEllipticCurve" xml:space="preserve">
+    <value>Unknown elliptic curve.</value>
+  </data>
+  <data name="Serialization_InvalidData" xml:space="preserve">
+    <value>An error occurred while deserializing the object.  The serialized data is corrupt.</value>
+  </data>
+  <data name="Cryptography_PartialBlock" xml:space="preserve">
+    <value>The input data is not a complete block.</value>
+  </data>
+  <data name="Cryptography_DecryptWithNoKey" xml:space="preserve">
+    <value>Decrypting a value requires that a key be set on the algorithm object.</value>
+  </data>
+  <data name="TraceAsTraceSource" xml:space="preserve">
+    <value>Trace</value>
+  </data>
+  <data name="Cryptography_MustTransformWholeBlock" xml:space="preserve">
+    <value>TransformBlock may only process bytes in block sized increments.</value>
+  </data>
+  <data name="ArgumentOutOfRange_ImpersonationInvalid" xml:space="preserve">
+    <value>TokenImpersonationLevel.None, TokenImpersonationLevel.Anonymous, TokenImpersonationLevel.Identification, TokenImpersonationLevel.Impersonation or TokenImpersonationLevel.Delegation required.</value>
+  </data>
+  <data name="Perflib_Argument_InvalidInstance" xml:space="preserve">
+    <value>Single instance type CounterSet '{0}' can only have 1 CounterSetInstance.</value>
+  </data>
+  <data name="IO_IO_BindHandleFailed" xml:space="preserve">
+    <value>BindHandle for ThreadPool failed on this handle.</value>
+  </data>
+  <data name="TimeZoneNotFound_MissingRegistryData" xml:space="preserve">
+    <value>The time zone ID '{0}' was not found on the local computer.</value>
+  </data>
+  <data name="Cryptography_ArgMustBeCngKeyBlobFormat" xml:space="preserve">
+    <value>Object must be of type CngKeyBlobFormat.</value>
+  </data>
+  <data name="Perflib_Argument_InstanceAlreadyExists" xml:space="preserve">
+    <value>Instance '{0}' already exists in CounterSet '{1}'.</value>
+  </data>
+  <data name="Argument_InvalidSerializedString" xml:space="preserve">
+    <value>The specified serialized string '{0}' is not supported.</value>
+  </data>
+  <data name="Perflib_Argument_CounterAlreadyExists" xml:space="preserve">
+    <value>CounterId '{0}' already added to CounterSet '{1}'.</value>
+  </data>
+  <data name="Argument_AdjustmentRulesNoNulls" xml:space="preserve">
+    <value>The AdjustmentRule array cannot contain null elements.</value>
+  </data>
+  <data name="NotSupported_SetTextWriter" xml:space="preserve">
+    <value>Setting TextWriter is unsupported on this listener.</value>
+  </data>
+  <data name="ArgumentOutOfRange_NeedNonNegNum" xml:space="preserve">
+    <value>Non negative number is required.</value>
+  </data>
+  <data name="IO_IO_PipeBroken" xml:space="preserve">
+    <value>Pipe is broken.</value>
+  </data>
+  <data name="ObjectDisposed_StreamClosed" xml:space="preserve">
+    <value>Cannot access a closed Stream.</value>
+  </data>
+  <data name="ArgumentOutOfRange_NeedValidMaxNumFiles" xml:space="preserve">
+    <value>Maximum number of files value should be greater than or equal to '{0}' for this retention</value>
+  </data>
+  <data name="Perflib_Argument_ProviderNotFound" xml:space="preserve">
+    <value>CounterSet provider '{0}' not found.</value>
+  </data>
+  <data name="NotSupported_UnreadableStream" xml:space="preserve">
+    <value>Stream does not support reading.</value>
+  </data>
+  <data name="Argument_AdjustmentRulesrDaylightSavingTimeOverlap" xml:space="preserve">
+    <value>The elements of the AdjustmentRule array must not contain Daylight Saving Time periods that overlap adjacent elements in such a way as to cause invalid or ambiguous time periods.</value>
+  </data>
+  <data name="SynchronizationLockException_MisMatchedUpgrade" xml:space="preserve">
+    <value>The upgradeable lock is being released without being held.</value>
+  </data>
+  <data name="ArgumentOutOfRange_AnonymousReserved" xml:space="preserve">
+    <value>The pipeName "anonymous" is reserved.</value>
+  </data>
+  <data name="InvalidOperation_EndWriteCalledMultiple" xml:space="preserve">
+    <value>EndWrite can only be called once for each asynchronous operation.</value>
+  </data>
+  <data name="Cryptography_ArgMustBeCngAlgorithmGroup" xml:space="preserve">
+    <value>Object must be of type CngAlgorithmGroup.</value>
+  </data>
+  <data name="ArgumentOutOfRange_OptionsInvalid" xml:space="preserve">
+    <value>options contains an invalid flag.</value>
+  </data>
+  <data name="Arg_HSCapacityOverflow" xml:space="preserve">
+    <value>HashSet capacity is too big.</value>
+  </data>
+  <data name="InvalidOperation_PipeReadModeNotMessage" xml:space="preserve">
+    <value>ReadMode is not of PipeTransmissionMode.Message.</value>
+  </data>
+  <data name="IO_IO_InvalidPipeHandle" xml:space="preserve">
+    <value>Invalid pipe handle.</value>
+  </data>
+  <data name="ArgumentOutOfRange_UtcOffsetAndDaylightDelta" xml:space="preserve">
+    <value>The sum of the BaseUtcOffset and DaylightDelta properties must within plus or minus 14.0 hours.</value>
+  </data>
+  <data name="Cryptography_MissingPublicKey" xml:space="preserve">
+    <value>Could not read the public key from the XML string.</value>
+  </data>
+  <data name="SynchronizationLockException_MisMatchedWrite" xml:space="preserve">
+    <value>The write lock is being released without being held.</value>
+  </data>
+  <data name="IO_IO_AlreadyExists_Name" xml:space="preserve">
+    <value>Cannot create "{0}" because a file or directory with the same name already exists.</value>
+  </data>
+  <data name="Perflib_Argument_InvalidCounterSetInstanceType" xml:space="preserve">
+    <value>CounterSetInstanceType '{0}' is not a valid CounterSetInstanceType.</value>
+  </data>
+  <data name="ArgumentOutOfRange_UtcOffset" xml:space="preserve">
+    <value>The TimeSpan parameter must be within plus or minus 14.0 hours.</value>
+  </data>
+  <data name="ObjectDisposed_FileClosed" xml:space="preserve">
+    <value>Cannot access a closed file.</value>
+  </data>
+  <data name="ArgumentOutOfRange_MaxNumServerInstances" xml:space="preserve">
+    <value>maxNumberOfServerInstances must either be a value between 1 and 254, or NamedPipeServerStream.MaxAllowedServerInstances (to obtain the maximum number allowed by system resources).</value>
+  </data>
+  <data name="Argument_NonContainerInvalidAnyFlag" xml:space="preserve">
+    <value>This flag may not be set on a pipe.</value>
+  </data>
+  <data name="Cryptography_InvalidAlgorithmName" xml:space="preserve">
+    <value>The algorithm name '{0}' is invalid.</value>
+  </data>
+  <data name="Argument_EmptyServerName" xml:space="preserve">
+    <value>serverName cannot be an empty string.  Use "." for current machine.</value>
+  </data>
+  <data name="Argument_TimeSpanHasSeconds" xml:space="preserve">
+    <value>The TimeSpan parameter cannot be specified more precisely than whole minutes.</value>
+  </data>
+  <data name="ArgumentOutOfRange_NeedValidLogRetention" xml:space="preserve">
+    <value>Need valid log retention option.</value>
+  </data>
+  <data name="Argument_AdjustmentRulesAmbiguousOverlap" xml:space="preserve">
+    <value>The elements of the AdjustmentRule array must not contain ambiguous time periods that extend beyond the DateStart or DateEnd properties of the element.</value>
+  </data>
+  <data name="IO_DriveNotFound_Drive" xml:space="preserve">
+    <value>Could not find the drive '{0}'. The drive might not be ready or might not be mapped.</value>
+  </data>
+  <data name="SynchronizationLockException_MisMatchedRead" xml:space="preserve">
+    <value>The read lock is being released without being held.</value>
+  </data>
+  <data name="Cryptography_InvalidAlgorithmGroup" xml:space="preserve">
+    <value>The algorithm group '{0}' is invalid.</value>
+  </data>
+  <data name="Cryptography_TlsRequiresLabelAndSeed" xml:space="preserve">
+    <value>The TLS key derivation function requires both the label and seed properties to be set.</value>
+  </data>
+  <data name="Cryptography_UnknownPaddingMode" xml:space="preserve">
+    <value>Unknown padding mode used.</value>
+  </data>
+  <data name="Cryptography_NonCompliantFIPSAlgorithm" xml:space="preserve">
+    <value>This implementation is not part of the Windows Platform FIPS validated cryptographic algorithms.</value>
+  </data>
+  <data name="Perflib_Argument_CounterNameAlreadyExists" xml:space="preserve">
+    <value>CounterName '{0}' already added to CounterSet '{1}'.</value>
+  </data>
+  <data name="ArgumentOutOfRange_InvalidTimeout" xml:space="preserve">
+    <value>Timeout must be non-negative or equal to -1 (Timeout.Infinite)</value>
+  </data>
+  <data name="ArgumentNull_Buffer" xml:space="preserve">
+    <value>Buffer cannot be null.</value>
+  </data>
+  <data name="Argument_NeedNonemptyPipeName" xml:space="preserve">
+    <value>pipeName cannot be an empty string.</value>
+  </data>
+  <data name="IO_FileNotFound_FileName" xml:space="preserve">
+    <value>Could not find file '{0}'.</value>
+  </data>
+  <data name="Perflib_InvalidOperation_CounterSetNotInstalled" xml:space="preserve">
+    <value>CounterSet '{0}' not installed yet.</value>
+  </data>
+  <data name="Cryptography_PlatformNotSupported" xml:space="preserve">
+    <value>The specified cryptographic algorithm is not supported on this platform.</value>
+  </data>
+  <data name="IO_IO_FileExists_Name" xml:space="preserve">
+    <value>The file '{0}' already exists.</value>
+  </data>
+  <data name="Argument_AdjustmentRulesInvalidOverlap" xml:space="preserve">
+    <value>The elements of the AdjustmentRule array must not contain invalid time periods that extend beyond the DateStart or DateEnd properties of the element. </value>
+  </data>
+  <data name="Cryptography_ArgMustBeCngAlgorithm" xml:space="preserve">
+    <value>Object must be of type CngAlgorithm.</value>
+  </data>
+  <data name="Perflib_Argument_EmptyCounterName" xml:space="preserve">
+    <value>Non-empty counterName required.</value>
+  </data>
+  <data name="Argument_InvalidREG_TZI_FORMAT" xml:space="preserve">
+    <value>The REG_TZI_FORMAT structure is corrupt.</value>
+  </data>
+  <data name="Argument_NeedNonemptyDelimiter" xml:space="preserve">
+    <value>Delimiter cannot be an empty string.</value>
+  </data>
+  <data name="IO_FileTooLongOrHandleNotSync" xml:space="preserve">
+    <value>IO operation will not work. Most likely the file will become too long or the handle was not opened to support synchronous IO operations.</value>
+  </data>
+  <data name="ArgumentOutOfRange_DayOfWeek" xml:space="preserve">
+    <value>The DayOfWeek enumeration must be in the range 0 through 6.</value>
+  </data>
+  <data name="Argument_ConvertMismatch" xml:space="preserve">
+    <value>The conversion could not be completed because the supplied DateTime did not have the Kind property set correctly.  For example, when the Kind property is DateTimeKind.Local, the source time zone must be TimeZoneInfo.Local.</value>
+  </data>
+  <data name="Cryptography_UnknownEllipticCurveAlgorithm" xml:space="preserve">
+    <value>Unknown elliptic curve algorithm.</value>
+  </data>
+  <data name="Cryptography_OpenInvalidHandle" xml:space="preserve">
+    <value>Cannot open an invalid handle.</value>
+  </data>
+  <data name="Cryptography_ArgMustBeCngProvider" xml:space="preserve">
+    <value>Object must be of type CngProvider.</value>
+  </data>
+  <data name="InvalidOperation_EnumOpCantHappen" xml:space="preserve">
+    <value>Enumeration has either not started or has already finished.</value>
+  </data>
+  <data name="InvalidOperation_PipeHandleNotSet" xml:space="preserve">
+    <value>Pipe handle has not been set.  Did your PipeStream implementation call InitializeHandle?</value>
+  </data>
+  <data name="Perflib_InvalidOperation_CounterSetContainsNoCounter" xml:space="preserve">
+    <value>CounterSet '{0}' does not include any counters.</value>
+  </data>
+</root>

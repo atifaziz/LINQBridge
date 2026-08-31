@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>DynamicBridge.Tests</RootNamespace>
+    <AssemblyName>Dynamic.Tests</AssemblyName>
+    <TargetFramework>net40</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <NoWarn>1685</NoWarn>
+    <DebugType>full</DebugType>
+    <IsPackable>false</IsPackable>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="NUnit" Version="2.6.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- The partner of DynamicBridge.Tests: the same fixtures, compiled against the real
+         Microsoft.CSharp and System.Core instead of Net20.DynamicBridge. net40 rather than net35
+         because 4.0 is the first Framework with 'dynamic'. Deliberately no reference to the bridge.
+         BridgeDynamicFixture stays out: CallSite internals and the ExpressionType ordinals it pins
+         are not something the Framework promises to a consumer. -->
+    <Compile Include="..\DynamicBridge.Tests\DynamicSubjects.cs" Link="DynamicSubjects.cs" />
+    <Compile Include="..\DynamicBridge.Tests\DynamicFixture.cs" Link="DynamicFixture.cs" />
+    <Compile Include="..\DynamicBridge.Tests\DynamicObjectFixture.cs" Link="DynamicObjectFixture.cs" />
+    <Compile Include="..\DynamicBridge.Tests\ExpandoObjectFixture.cs" Link="ExpandoObjectFixture.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="$(NuGetPackageRoot)net4x.nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.props" Condition="Exists('$(NuGetPackageRoot)net4x.nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.props')" />
+    <PropertyGroup>
+        <SkipAsyncBridge>true</SkipAsyncBridge>
+        <PackageOutputPath>$(SolutionDir)Packages\</PackageOutputPath>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <!-- CallSite, System.Dynamic and Microsoft.CSharp.RuntimeBinder ship in the box from 4.0
+             onwards, so those TFMs compile no C# at all and the package is an empty facade.
+             Same trick as LinqBridge; it is what keeps a net45 consumer free of CS0433. -->
+        <DefaultItemExcludes Condition="'$(TargetFramework)'=='net40' or '$(TargetFramework)'=='net45' or '$(TargetFramework)'=='netstandard2.0'">$(DefaultItemExcludes);**\*.cs</DefaultItemExcludes>
+        <RootNamespace>System</RootNamespace>
+        <AssemblyName>DynamicBridge</AssemblyName>
+        <PackageId>DynamicBridge</PackageId>
+        <TargetFrameworks>net20;net30;net35;net40;net45;netstandard2.0</TargetFrameworks>
+        <VersionPrefix>$(Net20DynamicBridgeVersion)</VersionPrefix>
+        <Version>$(VersionPrefix).$(VersionSuffix)</Version>
+        <SignAssembly>true</SignAssembly>
+        <AssemblyOriginatorKeyFile>..\LinqBridge\LinqBridge.snk</AssemblyOriginatorKeyFile>
+        <AssemblyTitle>DynamicBridge</AssemblyTitle>
+        <Product>DynamicBridge</Product>
+        <Description>Brings the C# 'dynamic' keyword to .NET Framework 2.0, 3.0 and 3.5 by supplying the compiler-required CallSite, System.Dynamic and Microsoft.CSharp.RuntimeBinder types.</Description>
+        <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+        <LangVersion>latest</LangVersion>
+        <IncludeSymbols>true</IncludeSymbols>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <NoWarn>$(NoWarn);CS1591</NoWarn>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <DebugType>full</DebugType>
+        <DefineConstants>TRACE;DEBUG;DYNAMICBRIDGE_LIB</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugType>pdbonly</DebugType>
+        <DefineConstants>TRACE;DYNAMICBRIDGE_LIB</DefineConstants>
+    </PropertyGroup>
+    <!-- net20/net30 have no System.Core, so System.Linq.Expressions comes from LinqBridge.
+         net35 has the real 3.5 System.Core, whose expression trees are all this assembly needs
+         (Lambda/Call/Convert/NewArrayInit), so it must NOT also reference LinqBridge or the two
+         System.Linq.Expressions.Expression types would collide. See doc/ for the full argument. -->
+    <ItemGroup>
+        <!-- A ProjectReference rather than a PackageReference: DynamicBridge needs the 4.0 members
+             this repo adds to System.Linq.Expressions.ExpressionType, and the packing step turns the
+             reference into a LinqBridge package dependency anyway. -->
+        <ProjectReference Include="..\LinqBridge\LinqBridge.csproj" Condition="'$(TargetFramework)'=='net20' or '$(TargetFramework)'=='net30'" />
+    </ItemGroup>
+    <ItemGroup>
+        <Reference Include="System.Core" Condition="'$(TargetFramework)'=='net35'" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Net35.Actions" Version="$(Net35ActionsVersion).$(VersionBuildSuffix)" />
+        <PackageReference Include="Net4x.NuGetUtility" Version="$(NuGetUtilityVersion)" PrivateAssets="All" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="..\LinqBridge\LinqBridge.snk" Link="LinqBridge.snk" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="README.md" Link="README.md" Pack="true" PackagePath="\README.md" />
+        <Content Include="$(SolutionDir)License.txt" Link="License.txt" Pack="true" PackagePath="\License.txt" Condition="Exists('$(SolutionDir)License.txt')" />
+    </ItemGroup>
+    <Import Project="$(NuGetPackageRoot)net4x.nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.targets" Condition="Exists('$(NuGetPackageRoot)net4x.nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.targets')" />
+</Project>

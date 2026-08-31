@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="$(NuGetPackageRoot)net4x.nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.props" Condition="Exists('$(NuGetPackageRoot)net4x.nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.props')" />
+    <PropertyGroup>
+        <SkipAsyncBridge>true</SkipAsyncBridge>
+        <PackageOutputPath>$(SolutionDir)Packages\</PackageOutputPath>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <DefaultItemExcludes Condition="'$(TargetFramework)'=='net35' or '$(TargetFramework)'=='net40' or '$(TargetFramework)'=='net45' or '$(TargetFramework)'=='netstandard2.0'">$(DefaultItemExcludes);**\*.cs</DefaultItemExcludes>
+        <RootNamespace>System</RootNamespace>
+        <AssemblyName>LinqBridge</AssemblyName>
+        <TargetFrameworks>net20;net30;net35;net40;net45;netstandard2.0</TargetFrameworks>
+        <SignAssembly>true</SignAssembly>
+        <AssemblyOriginatorKeyFile>LinqBridge.snk</AssemblyOriginatorKeyFile>
+        <AssemblyTitle>LINQBridge</AssemblyTitle>
+        <Product>LINQBridge</Product>
+        <Copyright>Copyright (c) 2007, Atif Aziz, Joseph Albahari. All rights reserved.</Copyright>
+        <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+        <Net30LinqBridgeVersion Condition="'$(Net30LinqBridgeVersion)' == ''">1.3.0</Net30LinqBridgeVersion>
+        <Version>$(VersionPrefix).$(VersionSuffix)</Version>
+        <FileVersion>1.3.14717.2012</FileVersion>
+        <PackageId>LinqBridge</PackageId>
+        <LangVersion>latest</LangVersion>
+        <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+        <IncludeSymbols>true</IncludeSymbols>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <DebugType>full</DebugType>
+        <DefineConstants>TRACE;DEBUG;LINQBRIDGE_LIB</DefineConstants>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugType>pdbonly</DebugType>
+        <DefineConstants>TRACE;LINQBRIDGE_LIB</DefineConstants>
+    </PropertyGroup>
+    <ItemGroup>
+        <Compile Remove="Action.cs" />
+        <Compile Update="ComponentModel\DataAnnotations\Resources\DataAnnotationsResources.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>DataAnnotationsResources.resx</DependentUpon>
+        </Compile>
+        <Compile Update="ComponentModel\DataAnnotations\Resources\Resource1.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Resource1.resx</DependentUpon>
+        </Compile>
+        <Compile Update="Linq\Enumerable.g.cs">
+            <AutoGen>True</AutoGen>
+            <DesignTime>True</DesignTime>
+            <DependentUpon>Enumerable.g.tt</DependentUpon>
+        </Compile>
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="LinqBridge.snk" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Net35.Actions" Version="$(Net35ActionsVersion).$(VersionBuildSuffix)" />
+        <PackageReference Include="Net4x.NuGetUtility" Version="$(NuGetUtilityVersion)" PrivateAssets="All" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Update="Linq\Enumerable.g.tt">
+            <Generator>TextTemplatingFileGenerator</Generator>
+            <LastGenOutput>Enumerable.g.cs</LastGenOutput>
+        </None>
+    </ItemGroup>
+    <ItemGroup>
+        <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+    </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Update="ComponentModel\DataAnnotations\Resources\DataAnnotationsResources.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>DataAnnotationsResources.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="ComponentModel\DataAnnotations\Resources\Resource1.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+    </ItemGroup>
+    <PropertyGroup>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+    </PropertyGroup>
+    <ItemGroup>
+        <Content Include="README.md" Link="README.md" Pack="true" PackagePath="\README.md" />
+        <Content Include="$(SolutionDir)License.txt" Link="License.txt" Pack="true" PackagePath="\License.txt" Condition="Exists('$(SolutionDir)License.txt')" />
+    </ItemGroup>
+    <Import Project="$(NuGetPackageRoot)net4x.nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.targets" Condition="Exists('$(NuGetPackageRoot)net4x.nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.targets')" />
+</Project>

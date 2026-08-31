@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ArgumentTypesMustMatch" xml:space="preserve">
+    <value>Argument types do not match</value>
+  </data>
+  <data name="PropertyNotDefinedForType" xml:space="preserve">
+    <value>Property '{0}' is not defined for type '{1}'</value>
+  </data>
+  <data name="ExpressionTypeDoesNotMatchArrayType" xml:space="preserve">
+    <value>An expression of type '{0}' cannot be used to initialize an array of type '{1}'</value>
+  </data>
+  <data name="UnhandledBindingType" xml:space="preserve">
+    <value>Unhandled Binding Type: {0}</value>
+  </data>
+  <data name="TypeNotIEnumerable" xml:space="preserve">
+    <value>Type '{0}' is not IEnumerable</value>
+  </data>
+  <data name="TypeMissingDefaultConstructor" xml:space="preserve">
+    <value>Type '{0}' does not have a default constructor</value>
+  </data>
+  <data name="IncorrectNumberOfIndexes" xml:space="preserve">
+    <value>Incorrect number of indexes</value>
+  </data>
+  <data name="TypeParameterIsNotDelegate" xml:space="preserve">
+    <value>Type parameter is {0}. Expected a delegate.</value>
+  </data>
+  <data name="ArgumentMustBeInt32" xml:space="preserve">
+    <value>Argument must be of type Int32</value>
+  </data>
+  <data name="ArgumentMustBeArray" xml:space="preserve">
+    <value>Argument must be array</value>
+  </data>
+  <data name="OwningTeam" xml:space="preserve">
+    <value>DLinq</value>
+  </data>
+  <data name="BinaryOperatorNotDefined" xml:space="preserve">
+    <value>The binary operator {0} is not defined for the types '{1}' and '{2}'.</value>
+  </data>
+  <data name="OperatorNotImplementedForType" xml:space="preserve">
+    <value>The operator '{0}' is not implemented for type '{1}'</value>
+  </data>
+  <data name="LogicalOperatorMustHaveConsistentTypes" xml:space="preserve">
+    <value>The user-defined operator method '{1}' for operator '{0}' must have identical parameter and return types.</value>
+  </data>
+  <data name="MethodDoesNotExistOnType" xml:space="preserve">
+    <value>No method '{0}' exists on type '{1}'.</value>
+  </data>
+  <data name="CannotCastTypeToType" xml:space="preserve">
+    <value>An expression of type '{0}' cannot be cast to type '{1}'</value>
+  </data>
+  <data name="IncorrectNumberOfTypeArgsForFunc" xml:space="preserve">
+    <value>An incorrect number of type args were specified for the declaration of a Func type.</value>
+  </data>
+  <data name="ArgumentMustBeIntegerOrBoolean" xml:space="preserve">
+    <value>Argument must be of an integer or boolean type</value>
+  </data>
+  <data name="LambdaTypeMustBeDerivedFromSystemDelegate" xml:space="preserve">
+    <value>Lambda type parameter must be derived from System.Delegate</value>
+  </data>
+  <data name="ParameterNotCaptured" xml:space="preserve">
+    <value>Parameter not captured</value>
+  </data>
+  <data name="ArgumentMustBeInstanceMember" xml:space="preserve">
+    <value>Argument must be an instance member</value>
+  </data>
+  <data name="ArgumentCannotBeOfTypeVoid" xml:space="preserve">
+    <value>Argument type cannot be System.Void.</value>
+  </data>
+  <data name="ArgumentMustBeCheckable" xml:space="preserve">
+    <value>Argument for a checked operation must be of type Int32, UInt32, Int64 or UInt64</value>
+  </data>
+  <data name="PropertyDoesNotHaveGetter" xml:space="preserve">
+    <value>The property '{0}' has no 'get' accessor</value>
+  </data>
+  <data name="ArgumentMustBeNumeric" xml:space="preserve">
+    <value>Argument must be of a numeric type</value>
+  </data>
+  <data name="ArgumentMustBeFieldInfoOrPropertInfo" xml:space="preserve">
+    <value>Argument must be either a FieldInfo or PropertyInfo</value>
+  </data>
+  <data name="ExpressionTypeDoesNotMatchReturn" xml:space="preserve">
+    <value>Expression of type '{0}' cannot be used for return type '{1}'</value>
+  </data>
+  <data name="ArgumentTypeDoesNotMatchMember" xml:space="preserve">
+    <value>Argument type '{0}' does not match the corresponding member type '{1}'</value>
+  </data>
+  <data name="ExpressionTypeDoesNotMatchParameter" xml:space="preserve">
+    <value>Expression of type '{0}' cannot be used for parameter of type '{1}'</value>
+  </data>
+  <data name="MethodNotDefinedForType" xml:space="preserve">
+    <value>Method '{0}' is not defined for type '{1}'</value>
+  </data>
+  <data name="MethodNotPropertyAccessor" xml:space="preserve">
+    <value>The method '{0}.{1}' is not a property accessor</value>
+  </data>
+  <data name="ExpressionTypeDoesNotMatchMethodParameter" xml:space="preserve">
+    <value>Expression of type '{0}' cannot be used for parameter of type '{1}' of method '{2}'</value>
+  </data>
+  <data name="MethodIsGeneric" xml:space="preserve">
+    <value>Method {0} is a generic method definition</value>
+  </data>
+  <data name="ExpressionMayNotContainByrefParameters" xml:space="preserve">
+    <value>A lambda expression cannot contain pass by reference parameters.</value>
+  </data>
+  <data name="CoalesceUsedOnNonNullType" xml:space="preserve">
+    <value>Coalesce used with type that cannot be null</value>
+  </data>
+  <data name="CannotAutoInitializeValueTypeElementThroughProperty" xml:space="preserve">
+    <value>Cannot auto initialize elements of value type through property '{0}', use assignment instead</value>
+  </data>
+  <data name="ArgumentMustBeArrayIndexType" xml:space="preserve">
+    <value>Argument for array index must be of type Int32</value>
+  </data>
+  <data name="IncorrectNumberOfMethodCallArguments" xml:space="preserve">
+    <value>Incorrect number of arguments supplied for call to method '{0}'</value>
+  </data>
+  <data name="ArgumentMustBeConvertible" xml:space="preserve">
+    <value>Argument must be of a convertible type</value>
+  </data>
+  <data name="MethodWithMoreThanOneMatch" xml:space="preserve">
+    <value>More than one method '{0}' on type '{1}' is compatible with the supplied arguments.</value>
+  </data>
+  <data name="MethodContainsGenericParameters" xml:space="preserve">
+    <value>Method {0} contains generic parameters</value>
+  </data>
+  <data name="CannotAutoInitializeValueTypeMemberThroughProperty" xml:space="preserve">
+    <value>Cannot auto initialize members of value type through property '{0}', use assignment instead</value>
+  </data>
+  <data name="ExpressionTypeCannotInitializeCollectionType" xml:space="preserve">
+    <value>An expression of type '{0}' cannot be used to initialize an collection of type '{1}'</value>
+  </data>
+  <data name="InvalidCast" xml:space="preserve">
+    <value>Cannot cast from type '{0}' to type '{1}</value>
+  </data>
+  <data name="IncorrectNumberOfMembersForGivenConstructor" xml:space="preserve">
+    <value>Incorrect number of members for constructor</value>
+  </data>
+  <data name="CoercionOperatorNotDefined" xml:space="preserve">
+    <value>No coercion operator is defined between types '{0}' and '{1}'.</value>
+  </data>
+  <data name="ArgumentMemberNotDeclOnType" xml:space="preserve">
+    <value>The member '{0}' is not declared on type '{1}' being created</value>
+  </data>
+  <data name="LambdaParameterNotInScope" xml:space="preserve">
+    <value>Lambda Parameter not in scope</value>
+  </data>
+  <data name="IncorrectNumberOfArgumentsForMembers" xml:space="preserve">
+    <value>Incorrect number of arguments for the given members </value>
+  </data>
+  <data name="TypeIsGeneric" xml:space="preserve">
+    <value>Type {0} is a generic type definition</value>
+  </data>
+  <data name="FieldNotDefinedForType" xml:space="preserve">
+    <value>Field '{0}' is not defined for type '{1}'</value>
+  </data>
+  <data name="UnhandledCall" xml:space="preserve">
+    <value>Unhandled method call: {0}</value>
+  </data>
+  <data name="MethodWithArgsDoesNotExistOnType" xml:space="preserve">
+    <value>No method '{0}' on type '{1}' is compatible with the supplied arguments.</value>
+  </data>
+  <data name="OperandTypesDoNotMatchParameters" xml:space="preserve">
+    <value>The operands for operator '{0}' do not match the parameters of method '{1}'.</value>
+  </data>
+  <data name="LogicalOperatorMustHaveBooleanOperators" xml:space="preserve">
+    <value>The user-defined operator method '{1}' for operator '{0}' must have associated boolean True and False operators.</value>
+  </data>
+  <data name="ExpressionTypeNotInvocable" xml:space="preserve">
+    <value>Expression of type '{0}' cannot be invoked</value>
+  </data>
+  <data name="UnhandledConvert" xml:space="preserve">
+    <value>Unhandled convert: {0}</value>
+  </data>
+  <data name="ElementInitializerMethodWithZeroArgs" xml:space="preserve">
+    <value>Element initializer method must have at least 1 parameter</value>
+  </data>
+  <data name="ArgumentMustBeBoolean" xml:space="preserve">
+    <value>Argument must be boolean</value>
+  </data>
+  <data name="UnaryOperatorNotDefined" xml:space="preserve">
+    <value>The unary operator {0} is not defined for the type '{1}'.</value>
+  </data>
+  <data name="IncorrectNumberOfLambdaDeclarationParameters" xml:space="preserve">
+    <value>Incorrect number of parameters supplied for lambda declaration</value>
+  </data>
+  <data name="ArgumentMustBeComparable" xml:space="preserve">
+    <value>Argument type must be comparable</value>
+  </data>
+  <data name="ArgumentMustBeSingleDimensionalArrayType" xml:space="preserve">
+    <value>Argument must be single dimensional array type</value>
+  </data>
+  <data name="ElementInitializerMethodNoRefOutParam" xml:space="preserve">
+    <value>Parameter '{0}' of element initializer method '{1}' must not be a pass by reference parameter</value>
+  </data>
+  <data name="UnhandledConvertFromDecimal" xml:space="preserve">
+    <value>Unhandled convert from decimal to {0}</value>
+  </data>
+  <data name="UnhandledExpressionType" xml:space="preserve">
+    <value>Unhandled Expression Type: {0}</value>
+  </data>
+  <data name="ArgumentMustBeInteger" xml:space="preserve">
+    <value>Argument must be of an integer type</value>
+  </data>
+  <data name="ExpressionTypeCannotInitializeArrayType" xml:space="preserve">
+    <value>An expression of type '{0}' cannot be used to initialize an array of type '{1}'</value>
+  </data>
+  <data name="IncorrectNumberOfLambdaArguments" xml:space="preserve">
+    <value>Incorrect number of arguments supplied for lambda invocation</value>
+  </data>
+  <data name="UnhandledUnary" xml:space="preserve">
+    <value>Unhandled unary: {0}</value>
+  </data>
+  <data name="UnknownBindingType" xml:space="preserve">
+    <value>Unknown binding type</value>
+  </data>
+  <data name="UnhandledBinding" xml:space="preserve">
+    <value>Unhandled binding </value>
+  </data>
+  <data name="IncorrectTypeForTypeAs" xml:space="preserve">
+    <value>The type used in TypeAs Expression must be of reference or nullable type, {0} is neither</value>
+  </data>
+  <data name="TypeContainsGenericParameters" xml:space="preserve">
+    <value>Type {0} contains generic parameters</value>
+  </data>
+  <data name="ArgumentMustBeFieldInfoOrPropertInfoOrMethod" xml:space="preserve">
+    <value>Argument must be either a FieldInfo, PropertyInfo or MethodInfo</value>
+  </data>
+  <data name="IncorrectNumberOfConstructorArguments" xml:space="preserve">
+    <value>Incorrect number of arguments for constructor</value>
+  </data>
+  <data name="UserDefinedOperatorMustBeStatic" xml:space="preserve">
+    <value>User-defined operator method '{0}' must be static.</value>
+  </data>
+  <data name="UnhandledConvertToDecimal" xml:space="preserve">
+    <value>Unhandled convert to decimal from {0}</value>
+  </data>
+  <data name="MemberNotFieldOrProperty" xml:space="preserve">
+    <value>Member '{0}' not field or property</value>
+  </data>
+  <data name="UnexpectedCoalesceOperator" xml:space="preserve">
+    <value>Unexpected coalesce operator.</value>
+  </data>
+  <data name="UnhandledMemberAccess" xml:space="preserve">
+    <value>Unhandled member access: {0}</value>
+  </data>
+  <data name="UnhandledBinary" xml:space="preserve">
+    <value>Unhandled binary: {0}</value>
+  </data>
+  <data name="ExpressionTypeDoesNotMatchConstructorParameter" xml:space="preserve">
+    <value>Expression of type '{0}' cannot be used for constructor parameter of type '{1}'</value>
+  </data>
+  <data name="NotAMemberOfType" xml:space="preserve">
+    <value>'{0}' is not a member of type '{1}'</value>
+  </data>
+  <data name="ElementInitializerMethodNotAdd" xml:space="preserve">
+    <value>Element initializer method must be named 'Add'</value>
+  </data>
+  <data name="ListInitializerWithZeroMembers" xml:space="preserve">
+    <value>List initializers must contain at least one initializer</value>
+  </data>
+  <data name="IncorrectNumberOfTypeArgsForAction" xml:space="preserve">
+    <value>An incorrect number of type args were specified for the declaration of an Action type.</value>
+  </data>
+  <data name="UserDefinedOperatorMustNotBeVoid" xml:space="preserve">
+    <value>User-defined operator method '{0}' must not be void.</value>
+  </data>
+  <data name="PropertyDoesNotHaveSetter" xml:space="preserve">
+    <value>The property '{0}' has no 'set' accessor</value>
+  </data>
+  <data name="ElementInitializerMethodStatic" xml:space="preserve">
+    <value>Element initializer method must be an instance method</value>
+  </data>
+  <data name="ParameterExpressionNotValidAsDelegate" xml:space="preserve">
+    <value>ParameterExpression of type '{0}' cannot be used for delegate parameter of type '{1}'</value>
+  </data>
+</root>
